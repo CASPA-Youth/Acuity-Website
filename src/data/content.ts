@@ -67,15 +67,15 @@ export const ideas: Idea[] = [
     title: 'Website or app',
     meta: 'digital product',
     description:
-      'Turn the theme into a focused tool people can use. Keep the audience specific, the main workflow clear, and the demo reliable.',
+      'Turn one or both themes into a focused tool people can use. Keep the audience specific, the main workflow clear, and the demo reliable.',
     trace: ['name one user', 'define one problem', 'build the core flow', 'demo the result'],
   },
   {
     title: 'Game',
     meta: 'interactive',
     description:
-      'Teach, motivate, or explore the theme through play. A small polished mechanic is stronger than a huge unfinished world.',
-    trace: ['choose a mechanic', 'connect it to the theme', 'build one level', 'playtest and tune'],
+      'Teach, motivate, or explore the themes through play. A small polished mechanic is stronger than a huge unfinished world.',
+    trace: ['choose a mechanic', 'connect it to the themes', 'build one level', 'playtest and tune'],
   },
   {
     title: 'Hardware prototype',
@@ -127,7 +127,7 @@ export const benefits: Benefit[] = [
   {
     stat: '5',
     label: 'possible themes',
-    body: 'Watch for hints, then discover the final theme at kickoff.',
+    body: 'Watch for hints, then discover the two final themes at kickoff.',
   },
   {
     stat: '2',
@@ -139,7 +139,7 @@ export const benefits: Benefit[] = [
 export const howItWorks = [
   { step: '1', title: 'Register', body: 'Submit one form per student at least one week before the event.' },
   { step: '2', title: 'Form a team', body: 'Build solo, team up with as many as three others, or join team matching.' },
-  { step: '3', title: 'Get the theme', body: 'The final theme is revealed at kickoff so everyone starts together.' },
+  { step: '3', title: 'Get the themes', body: 'The two final themes are revealed at kickoff so everyone starts together.' },
   { step: '4', title: 'Build', body: 'Create an original game, app, website, hardware project, or another sharp prototype.' },
   { step: '5', title: 'Attribute', body: 'Credit every third-party library, asset, model, and source you use.' },
   { step: '6', title: 'Submit', body: 'Turn in your project and a demo that works for both online and in-person judging.' },
@@ -155,13 +155,27 @@ export type ScheduleItem = {
 }
 
 export const schedule: ScheduleItem[] = [
-  { day: 'Before the event', time: 'TBA', title: 'Registration closes', detail: 'Register at least one week before kickoff.' },
-  { day: 'Day 1 · Aug 6', time: 'TBA', title: 'Check-in & team matching', detail: 'Online and in-person participants get set up.' },
-  { day: 'Day 1 · Aug 6', time: 'TBA', title: 'Opening & theme reveal', detail: 'Meet the organizers, review the rules, and discover the theme.', highlight: true },
-  { day: 'Day 1 · Aug 6', time: 'TBA', title: 'Building begins', detail: 'Choose a format, narrow the idea, and start making.' },
-  { day: 'Day 2 · Aug 7', time: 'TBA', title: 'Project submissions', detail: 'Submit the project, credits, and a clear demo.', highlight: true },
-  { day: 'Day 2 · Aug 7', time: 'TBA', title: 'Presentations & judging', detail: 'Teams present live or by recorded demo as directed.' },
-  { day: 'Day 2 · Aug 7', time: 'TBA', title: 'Awards & closing', detail: 'The panel shares feedback and recognizes standout projects.', highlight: true },
+  { day: 'Day 1 · Aug 6', time: '9:00–9:30 AM', title: 'Participant check-in', detail: 'In-person participants check in while online participants join through the event channels.' },
+  { day: 'Day 1 · Aug 6', time: '9:30–10:00 AM', title: 'Welcome & CASPA introduction', detail: 'Meet the organizers and get an overview of the hackathon.' },
+  { day: 'Day 1 · Aug 6', time: '10:00–10:15 AM', title: 'Sponsor recognition', detail: 'Meet the organizations helping make Acuity Hacks possible.' },
+  { day: 'Day 1 · Aug 6', time: '10:15–10:30 AM', title: 'Rules & expectations', detail: 'Review team size, AI use, originality, attribution, conduct, and hybrid participation.' },
+  { day: 'Day 1 · Aug 6', time: '10:30–10:45 AM', title: 'Theme reveal', detail: 'The two final themes are announced and the challenge officially begins.', highlight: true },
+  { day: 'Day 1 · Aug 6', time: '10:45–11:30 AM', title: 'Team formation & brainstorming', detail: 'Find teammates, confirm teams of up to four, and shape the first idea.' },
+  { day: 'Day 1 · Aug 6', time: '11:30 AM–9:00 PM', title: 'Open hacking block', detail: 'Build throughout the day with online and in-person support available.' },
+  { day: 'Day 1 · Aug 6', time: '12:00–1:00 PM', title: 'Lunch available', detail: 'Grab-and-go lunch is available during the hacking block.' },
+  { day: 'Day 1 · Aug 6', time: '6:00–7:00 PM', title: 'Dinner available', detail: 'Grab-and-go dinner is available while teams continue building.' },
+  { day: 'Day 1 · Aug 6', time: '8:30–9:00 PM', title: 'Day 1 announcements', detail: 'Review the next day’s schedule and the noon submission deadline.' },
+  { day: 'Day 2 · Aug 7', time: '9:00–9:30 AM', title: 'Participant check-in', detail: 'Teams return in person or online and get ready for the final build window.' },
+  { day: 'Day 2 · Aug 7', time: '9:30–10:00 AM', title: 'Day 2 announcements', detail: 'Review the submission deadline and presentation process.' },
+  { day: 'Day 2 · Aug 7', time: '10:00 AM–12:00 PM', title: 'Final hacking block', detail: 'Finish, test, document, and prepare the final submission.' },
+  { day: 'Day 2 · Aug 7', time: '12:00 PM', title: 'Final submission deadline', detail: 'Project links, slides, source links, demo videos, and team information are due.', highlight: true },
+  { day: 'Day 2 · Aug 7', time: '12:00–1:00 PM', title: 'Lunch available', detail: 'Grab lunch while submissions are organized for presentations.' },
+  { day: 'Day 2 · Aug 7', time: '1:00–3:00 PM', title: 'Presentation preparation', detail: 'Rehearse demos and test slides, links, videos, and screen sharing.' },
+  { day: 'Day 2 · Aug 7', time: '3:00–6:00 PM', title: 'Team presentations & demos', detail: 'Present in person, through Zoom, or by recorded demo when needed.', highlight: true },
+  { day: 'Day 2 · Aug 7', time: '6:00–7:00 PM', title: 'Dinner & networking', detail: 'Eat, explore projects, and connect with participants and sponsors.' },
+  { day: 'Day 2 · Aug 7', time: '7:00–7:30 PM', title: 'Awards ceremony', detail: 'Winners and special awards are announced.', highlight: true },
+  { day: 'Day 2 · Aug 7', time: '7:30–8:00 PM', title: 'Closing remarks & group photo', detail: 'Wrap up the event and celebrate everyone who participated.' },
+  { day: 'Day 2 · Aug 7', time: '8:00–9:00 PM', title: 'Optional showcase & networking', detail: 'Stay to share projects casually and meet sponsors and organizers.' },
 ]
 
 export type Prize = {
@@ -173,7 +187,7 @@ export type Prize = {
 
 export const prizes: Prize[] = [
   { title: 'Best Overall Project', amount: 'Details soon', note: 'The strongest complete project of the event.', size: 'grand' },
-  { title: 'Category Awards', amount: 'Details soon', note: 'Recognition for standout work within the final theme.', size: 'major' },
+  { title: 'Category Awards', amount: 'Details soon', note: 'Recognition for standout work across the two final themes.', size: 'major' },
   { title: 'Best Technical Execution', amount: 'Details soon', note: 'A reliable, thoughtful, and ambitious implementation.', size: 'major' },
   { title: 'Most Creative Project', amount: 'Details soon', note: 'An original idea with a distinctive point of view.', size: 'standard' },
   { title: 'Best Visual Design', amount: 'Details soon', note: 'The clearest and most polished visual experience.', size: 'standard' },
@@ -224,8 +238,8 @@ export const faqs: Faq[] = [
   { q: 'Who can participate?', a: 'Acuity Hacks is open to middle and high school students. Students at every experience level are welcome.' },
   { q: 'Do I need a team?', a: 'No. Build solo, register with teammates, or use team matching at the event. Teams may have up to four members.' },
   { q: 'Is the event in person or online?', a: 'Both. Join at 2933 Bunker Hill Ln in Santa Clara or participate online. Presentation details will keep both groups on the same event timeline.' },
-  { q: 'When will the theme be announced?', a: 'At kickoff. We’ll share hints and a pool of possible themes beforehand, but the final theme stays secret so every team starts together.' },
-  { q: 'What can I build?', a: 'A game, website, app, hardware prototype, data project, or another format that responds to the final theme. Hardware teams should bring their own components.' },
+  { q: 'When will the themes be announced?', a: 'At kickoff. We’ll share hints and a pool of possible themes beforehand, but the final two stay secret so every team starts together.' },
+  { q: 'What can I build?', a: 'A game, website, app, hardware prototype, data project, or another format that responds to one or both final themes. Hardware teams should bring their own components.' },
   { q: 'Can I use AI?', a: 'Yes, but AI should support your work—not produce the entire project for you. Judges will look for your team’s own thinking, technical decisions, and execution.' },
   { q: 'Can I use existing code or third-party tools?', a: 'Do not bring a premade project. Your submission should be mostly original work created for the hackathon, and every library, asset, model, source, or other third-party contribution must be credited.' },
   { q: 'How are projects judged?', a: 'A professional panel reviews creativity, impact, complexity, execution and functionality, and the presentation or demo. Final scoring details will be shared with participants.' },

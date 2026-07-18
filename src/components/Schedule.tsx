@@ -10,8 +10,8 @@ export default function Schedule() {
           <SectionHeader
             index="05"
             kicker="Schedule"
-            title={<>The two-day game plan.</>}
-            intro="The major milestones are set; exact times and online access details are still being finalized. Both in-person and online participants will follow the same event flow."
+            title={<>The full two-day run of show.</>}
+            intro="Both in-person and online participants follow the same event timeline. Access links and final participant instructions will be shared before kickoff."
           />
 
           <div className="relative">

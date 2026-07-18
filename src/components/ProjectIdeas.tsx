@@ -15,7 +15,7 @@ export default function ProjectIdeas() {
           index="02"
           kicker="Project Formats"
           title={<>Build it your way.</>}
-          intro="The theme sets the problem, not the medium. These are starting points—not requirements—for shaping an idea into something the judges can experience."
+          intro="The themes set the problems, not the medium. These are starting points—not requirements—for shaping an idea into something the judges can experience."
           className="max-w-2xl"
         />
 

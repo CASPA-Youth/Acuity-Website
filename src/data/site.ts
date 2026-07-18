@@ -7,8 +7,8 @@ export const event = {
   tagline: 'Build sharp.',
   subtagline: 'A two-day build sprint for sharp ideas.',
   description:
-    'Join online or in Santa Clara, meet your team, and build an original project around a theme revealed when the hackathon begins.',
-  theme: 'Revealed at kickoff',
+    'Join online or in Santa Clara, meet your team, and build an original project around two themes revealed when the hackathon begins.',
+  theme: 'Two revealed at kickoff',
   date: 'August 6–7, 2026',
   dateShort: 'Aug 6–7 · 2026',
   location: 'Santa Clara, CA / Online',

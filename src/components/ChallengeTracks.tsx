@@ -27,8 +27,8 @@ export default function ChallengeTracks() {
         <SectionHeader
           index="01"
           kicker="Possible Themes"
-          title={<>One theme. Revealed at kickoff.</>}
-          intro="We’ll share hints as the event gets closer. The final challenge will come from this pool, and every team will discover it together when building begins."
+          title={<>Two themes. Revealed at kickoff.</>}
+          intro="We’ll share hints as the event gets closer. Two final challenges will be selected from this pool, and every team will discover them together when building begins."
           className="max-w-2xl"
         />
 

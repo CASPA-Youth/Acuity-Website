@@ -24,7 +24,7 @@ export default function Hero() {
           >
             <span className="inline-flex items-center gap-2">
               <span className="diamond" />
-              Theme: {event.theme}
+              Themes: {event.theme}
             </span>
             <span className="text-faint">·</span>
             <span className="text-faint">by {event.organizer}</span>

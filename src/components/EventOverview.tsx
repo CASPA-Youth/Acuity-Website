@@ -5,7 +5,7 @@ const principles = [
   {
     n: '01',
     title: 'Start together',
-    body: 'The final theme is revealed at kickoff. No premade projects—everyone gets the same starting line and two days to turn an idea into a demo.',
+    body: 'The two final themes are revealed at kickoff. No premade projects—everyone gets the same starting line and two days to turn an idea into a demo.',
   },
   {
     n: '02',
@@ -38,7 +38,7 @@ export default function EventOverview() {
               intro={
                 <>
                   {event.name} is a student-run build sprint by {event.organizer}. Join in Santa
-                  Clara or online, discover the theme at kickoff, and turn an original idea into a
+                  Clara or online, discover the two themes at kickoff, and turn an original idea into a
                   working submission across two focused days.
                 </>
               }
