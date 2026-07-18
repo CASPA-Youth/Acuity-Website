@@ -1,12 +1,11 @@
 import { Reveal } from './primitives'
 import { benefits } from '../data/content'
-import { event } from '../data/site'
 
 const reasons = [
   'Turn an idea into a working prototype',
   'Work shoulder-to-shoulder with a team',
-  'Get 1:1 time with real mentors',
-  'Meet developers, designers & researchers',
+  'Build in person or join online',
+  'Meet other student builders',
   'Present live to a professional panel',
   'Walk away with a portfolio project',
 ]
@@ -28,7 +27,7 @@ export default function Benefits() {
             </h2>
             <p className="relative mt-5 max-w-md font-body text-lg leading-relaxed text-midnight/80">
               You leave with a working project, sharper skills, people who build like you do, and a
-              shot at the prize pool.
+              chance to put your work in front of a professional panel.
             </p>
           </Reveal>
 
@@ -70,7 +69,8 @@ export default function Benefits() {
 
         <Reveal className="mt-10 flex flex-wrap items-center justify-between gap-4 rounded-lg border border-line bg-[#120830]/50 px-7 py-6">
           <p className="font-display text-xl font-semibold">
-            Prize pool: <span className="text-indigo">{event.prizePool}</span> across every track.
+            <span className="text-indigo">Award details are coming soon.</span> Projects will be
+            recognized across both main and special categories.
           </p>
           <a
             href="#prizes"

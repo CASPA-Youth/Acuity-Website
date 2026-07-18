@@ -9,49 +9,49 @@ export type Track = {
 
 export const tracks: Track[] = [
   {
-    id: 'ml',
+    id: 'sustainability',
     index: '01',
+    title: 'Sustainability & Social Good',
+    tag: 'Planet & Access',
+    level: 'Possible theme',
+    description:
+      'Build for a healthier planet or a more accessible community. Start with a real need and make the impact easy to understand.',
+  },
+  {
+    id: 'ml',
+    index: '02',
     title: 'Machine Learning',
     tag: 'Models & Data',
-    level: 'Any level',
+    level: 'Possible theme',
     description:
-      'Train or fine-tune a model, or build a data-driven system that solves a problem someone actually has. Show the model earns its place in the product.',
+      'Use data, models, or agents to solve a meaningful problem. The technology should earn its place in the project.',
   },
   {
-    id: 'agents',
-    index: '02',
-    title: 'Autonomous Agents',
-    tag: 'Planning & Tools',
-    level: 'Intermediate',
-    description:
-      'Build an agent that plans, reasons, calls tools, and finishes a multi-step task on its own — not a chatbot with a prompt taped on.',
-  },
-  {
-    id: 'collab',
+    id: 'productivity',
     index: '03',
-    title: 'Human–AI Collaboration',
-    tag: 'Interfaces',
-    level: 'Any level',
+    title: 'Productivity',
+    tag: 'Tools & Workflows',
+    level: 'Possible theme',
     description:
-      'Design a system where a person and a model each do what they are good at. The handoffs between them should feel obvious and in the user’s control.',
+      'Rethink a frustrating routine, remove busywork, or help people focus. Fresh execution matters in a crowded space.',
   },
   {
-    id: 'devtools',
+    id: 'education',
     index: '04',
-    title: 'Developer Tools',
-    tag: 'Workflows',
-    level: 'Intermediate',
+    title: 'Education',
+    tag: 'Learning & Growth',
+    level: 'Possible theme',
     description:
-      'Make coding, debugging, testing, or deploying measurably faster. The best entries feel like a tool you would keep using after the weekend ends.',
+      'Make learning more engaging, understandable, or available. Build for a specific learner and show how your idea helps.',
   },
   {
-    id: 'open',
+    id: 'health',
     index: '05',
-    title: 'Open Innovation',
-    tag: 'Wildcard',
-    level: 'Ambitious',
+    title: 'Mental Health',
+    tag: 'Wellness & Habits',
+    level: 'Possible theme',
     description:
-      'Something that doesn’t fit a box. Bring the ambitious idea you couldn’t stop thinking about — if it’s sharp, it belongs here.',
+      'Support healthier habits, mental wellness, or everyday care with a thoughtful prototype that keeps safety and privacy in view.',
   },
 ]
 
@@ -64,46 +64,46 @@ export type Idea = {
 
 export const ideas: Idea[] = [
   {
-    title: 'Group-chat moderator',
-    meta: 'agent · summarize',
+    title: 'Website or app',
+    meta: 'digital product',
     description:
-      'Reads a busy thread, summarizes what happened, assigns follow-ups, and tracks which decisions actually got made.',
-    trace: ['scan 214 messages', 'cluster → 4 topics', 'assign 3 tasks', 'log 2 decisions'],
+      'Turn the theme into a focused tool people can use. Keep the audience specific, the main workflow clear, and the demo reliable.',
+    trace: ['name one user', 'define one problem', 'build the core flow', 'demo the result'],
   },
   {
-    title: 'LLM council',
-    meta: 'multi-model',
+    title: 'Game',
+    meta: 'interactive',
     description:
-      'Asks several models to debate the same question, surfaces where they disagree, then synthesizes one grounded answer.',
-    trace: ['query 4 models', 'diff positions', 'flag 1 conflict', 'synthesize'],
+      'Teach, motivate, or explore the theme through play. A small polished mechanic is stronger than a huge unfinished world.',
+    trace: ['choose a mechanic', 'connect it to the theme', 'build one level', 'playtest and tune'],
   },
   {
-    title: 'Inbox-to-checklist',
-    meta: 'agent · parse',
+    title: 'Hardware prototype',
+    meta: 'bring components',
     description:
-      'Turns a wall of email into an interactive checklist — every ask becomes a task you can check off or delegate.',
-    trace: ['parse 9 emails', 'extract 12 asks', 'dedupe → 8', 'build checklist'],
+      'Connect code to the physical world with your own components. Record a clear demo so judges can evaluate the full experience.',
+    trace: ['bring your parts', 'wire the interaction', 'test edge cases', 'record a clear demo'],
   },
   {
-    title: 'Context-aware IDE',
-    meta: 'devtools',
+    title: 'Communication tool',
+    meta: 'people & teams',
     description:
-      'A coding environment that reads your repo, remembers past changes, and suggests edits that fit how your project is actually built.',
-    trace: ['index repo', 'load 3 conventions', 'draft patch', 'run tests'],
+      'Help a group make decisions, resolve confusion, or follow through on plans without taking control away from the people involved.',
+    trace: ['map the conversation', 'surface key decisions', 'assign follow-ups', 'keep users in control'],
   },
   {
-    title: 'Research agent',
-    meta: 'agent · retrieve',
+    title: 'Workflow automation',
+    meta: 'agents & tools',
     description:
-      'Gathers sources on a question, compares their claims, and explains what to trust — with citations you can click through.',
-    trace: ['fetch 18 sources', 'rank by relevance', 'compare claims', 'cite 6'],
+      'Automate one difficult part of a real workflow. Show the steps, the guardrails, and why automation makes the outcome better.',
+    trace: ['pick one bottleneck', 'plan the steps', 'connect the tools', 'verify the output'],
   },
   {
-    title: 'Adaptive accessibility',
-    meta: 'human–AI',
+    title: 'Data simulation',
+    meta: 'model & visualize',
     description:
-      'Reshapes an interface or a page on the fly — simplifying, re-captioning, or re-laying-out content for how someone reads.',
-    trace: ['read layout', 'detect density', 'restructure DOM', 'recaption 4 imgs'],
+      'Model a real system with changing inputs, realistic randomness, and a visual interface that makes complex behavior legible.',
+    trace: ['choose a scenario', 'model source → transit → end', 'add variability', 'visualize outcomes'],
   },
 ]
 
@@ -115,35 +115,35 @@ export type Benefit = {
 
 export const benefits: Benefit[] = [
   {
-    stat: '48h',
+    stat: '2d',
     label: 'idea → prototype',
-    body: 'Turn a maybe into a working demo in a single focused weekend.',
+    body: 'Turn a promising idea into a demo across two focused days.',
   },
   {
-    stat: '1:1',
-    label: 'mentor time',
-    body: 'Sit with engineers and researchers who have shipped real ML systems.',
+    stat: '4',
+    label: 'people per team',
+    body: 'Build solo or bring together a team of up to four students.',
   },
   {
     stat: '5',
-    label: 'challenge tracks',
-    body: 'Pick the lane that fits your idea — or take the wildcard.',
+    label: 'possible themes',
+    body: 'Watch for hints, then discover the final theme at kickoff.',
   },
   {
-    stat: '∞',
-    label: 'people to meet',
-    body: 'Builders, designers, and researchers who care about the same problems.',
+    stat: '2',
+    label: 'ways to join',
+    body: 'Take part with us in Santa Clara or join the event online.',
   },
 ]
 
 export const howItWorks = [
-  { step: '1', title: 'Register', body: 'One form per person. Lock your spot before the deadline.' },
-  { step: '2', title: 'Form a team', body: 'Team up with up to four, or go solo — both win prizes.' },
-  { step: '3', title: 'Choose a challenge', body: 'Pick a track that fits the idea you want to chase.' },
-  { step: '4', title: 'Build', body: '48 hours, mentors on call, and a room full of momentum.' },
-  { step: '5', title: 'Submit', body: 'Ship a demo and a short write-up before the deadline.' },
-  { step: '6', title: 'Present', body: 'Walk a panel of judges through what you made and why.' },
-  { step: '7', title: 'Win', body: 'Take home prizes across every track — plus the portfolio piece.' },
+  { step: '1', title: 'Register', body: 'Submit one form per student at least one week before the event.' },
+  { step: '2', title: 'Form a team', body: 'Build solo, team up with as many as three others, or join team matching.' },
+  { step: '3', title: 'Get the theme', body: 'The final theme is revealed at kickoff so everyone starts together.' },
+  { step: '4', title: 'Build', body: 'Create an original game, app, website, hardware project, or another sharp prototype.' },
+  { step: '5', title: 'Attribute', body: 'Credit every third-party library, asset, model, and source you use.' },
+  { step: '6', title: 'Submit', body: 'Turn in your project and a demo that works for both online and in-person judging.' },
+  { step: '7', title: 'Present', body: 'Show the panel what you built, how it works, and why it matters.' },
 ]
 
 export type ScheduleItem = {
@@ -155,16 +155,13 @@ export type ScheduleItem = {
 }
 
 export const schedule: ScheduleItem[] = [
-  { day: 'Pre-event', time: '[DATE]', title: 'Registration opens', detail: 'Applications go live.' },
-  { day: 'Pre-event', time: '[DEADLINE]', title: 'Registration closes', detail: 'Last call to sign up.' },
-  { day: 'Day 1', time: '[TIME]', title: 'Team formation', detail: 'Find teammates, form squads.' },
-  { day: 'Day 1', time: '[TIME]', title: 'Opening ceremony', detail: 'Kickoff, themes, and rules.', highlight: true },
-  { day: 'Day 1', time: '[TIME]', title: 'Building begins', detail: 'The clock starts. Go.' },
-  { day: 'Day 1', time: '[TIME]', title: 'Mentor sessions', detail: 'Office hours across every track.' },
-  { day: 'Day 2', time: '[TIME]', title: 'Submission deadline', detail: 'Demos and write-ups due.', highlight: true },
-  { day: 'Day 2', time: '[TIME]', title: 'Judging', detail: 'Panels review every project.' },
-  { day: 'Day 2', time: '[TIME]', title: 'Final presentations', detail: 'Top teams present live.' },
-  { day: 'Day 2', time: '[TIME]', title: 'Awards ceremony', detail: 'Winners announced. Prizes handed out.', highlight: true },
+  { day: 'Before the event', time: 'TBA', title: 'Registration closes', detail: 'Register at least one week before kickoff.' },
+  { day: 'Day 1 · Aug 6', time: 'TBA', title: 'Check-in & team matching', detail: 'Online and in-person participants get set up.' },
+  { day: 'Day 1 · Aug 6', time: 'TBA', title: 'Opening & theme reveal', detail: 'Meet the organizers, review the rules, and discover the theme.', highlight: true },
+  { day: 'Day 1 · Aug 6', time: 'TBA', title: 'Building begins', detail: 'Choose a format, narrow the idea, and start making.' },
+  { day: 'Day 2 · Aug 7', time: 'TBA', title: 'Project submissions', detail: 'Submit the project, credits, and a clear demo.', highlight: true },
+  { day: 'Day 2 · Aug 7', time: 'TBA', title: 'Presentations & judging', detail: 'Teams present live or by recorded demo as directed.' },
+  { day: 'Day 2 · Aug 7', time: 'TBA', title: 'Awards & closing', detail: 'The panel shares feedback and recognizes standout projects.', highlight: true },
 ]
 
 export type Prize = {
@@ -175,30 +172,27 @@ export type Prize = {
 }
 
 export const prizes: Prize[] = [
-  { title: 'Grand Prize', amount: '[PRIZE AMOUNT]', note: 'Best overall project across every track.', size: 'grand' },
-  { title: 'Best Use of AI Agents', amount: '[PRIZE AMOUNT]', note: 'Sharpest agentic system.', size: 'major' },
-  { title: 'Best Technical Execution', amount: '[PRIZE AMOUNT]', note: 'Cleanest, most complete build.', size: 'major' },
-  { title: 'Most Creative Project', amount: '[PRIZE AMOUNT]', note: 'The idea no one else had.', size: 'standard' },
-  { title: 'Best Human–AI Collaboration', amount: '[PRIZE AMOUNT]', note: 'People and models, working as one.', size: 'standard' },
-  { title: 'Best Beginner Team', amount: '[PRIZE AMOUNT]', note: 'Strongest first-time build.', size: 'standard' },
-  { title: 'Audience Choice', amount: '[PRIZE AMOUNT]', note: 'Voted by everyone in the room.', size: 'standard' },
+  { title: 'Best Overall Project', amount: 'Details soon', note: 'The strongest complete project of the event.', size: 'grand' },
+  { title: 'Category Awards', amount: 'Details soon', note: 'Recognition for standout work within the final theme.', size: 'major' },
+  { title: 'Best Technical Execution', amount: 'Details soon', note: 'A reliable, thoughtful, and ambitious implementation.', size: 'major' },
+  { title: 'Most Creative Project', amount: 'Details soon', note: 'An original idea with a distinctive point of view.', size: 'standard' },
+  { title: 'Best Visual Design', amount: 'Details soon', note: 'The clearest and most polished visual experience.', size: 'standard' },
+  { title: 'Greatest Impact', amount: 'Details soon', note: 'The project with the strongest potential to help people.', size: 'standard' },
+  { title: 'Best Presentation', amount: 'Details soon', note: 'A memorable demo that makes the work easy to understand.', size: 'standard' },
 ]
 
 export type Criterion = {
   index: string
   title: string
-  weight: string
   body: string
 }
 
 export const criteria: Criterion[] = [
-  { index: '01', title: 'Technical execution', weight: '25%', body: 'Does it work, and is it built well under the hood?' },
-  { index: '02', title: 'Originality', weight: '20%', body: 'A fresh angle, not a wrapper on an obvious idea.' },
-  { index: '03', title: 'Usefulness', weight: '20%', body: 'Would a real person reach for this again?' },
-  { index: '04', title: 'Effective use of ML / agents', weight: '15%', body: 'The intelligence earns its place — not a bolted-on feature.' },
-  { index: '05', title: 'Design & usability', weight: '10%', body: 'Clear, considered, and pleasant to actually use.' },
-  { index: '06', title: 'Completeness', weight: '5%', body: 'A working prototype beats a bigger idea half-built.' },
-  { index: '07', title: 'Presentation', weight: '5%', body: 'You can explain what you made and why it matters.' },
+  { index: '01', title: 'Creativity', body: 'Does the project bring an original idea or a fresh visual and technical approach?' },
+  { index: '02', title: 'Impact', body: 'Could this meaningfully help a person, a community, or a larger group?' },
+  { index: '03', title: 'Complexity', body: 'Did the team take on a meaningful technical challenge and handle it thoughtfully?' },
+  { index: '04', title: 'Execution & functionality', body: 'Does the prototype work, address the problem, and hold up in the demo?' },
+  { index: '05', title: 'Presentation & demo', body: 'Can the team clearly explain the idea, the build, and the result?' },
 ]
 
 export type Judge = {
@@ -209,50 +203,7 @@ export type Judge = {
   bio: string
 }
 
-export const judges: Judge[] = [
-  {
-    name: '[JUDGE NAME]',
-    role: 'Staff ML Engineer',
-    org: '[ORGANIZATION]',
-    expertise: 'Applied ML',
-    bio: 'Ships production models at scale and mentors first-time builders on the parts that actually break.',
-  },
-  {
-    name: '[JUDGE NAME]',
-    role: 'Research Scientist',
-    org: '[ORGANIZATION]',
-    expertise: 'Agents & reasoning',
-    bio: 'Studies multi-step agents and how they plan — and how they fail — in the real world.',
-  },
-  {
-    name: '[JUDGE NAME]',
-    role: 'Founding Engineer',
-    org: '[ORGANIZATION]',
-    expertise: 'Developer tools',
-    bio: 'Built the kind of tooling other engineers quietly refuse to work without.',
-  },
-  {
-    name: '[MENTOR NAME]',
-    role: 'Product Designer',
-    org: '[ORGANIZATION]',
-    expertise: 'Human–AI UX',
-    bio: 'Designs the seams where people and models hand work back and forth.',
-  },
-  {
-    name: '[MENTOR NAME]',
-    role: 'PhD Candidate',
-    org: '[UNIVERSITY]',
-    expertise: 'NLP',
-    bio: 'Researches language models and loves turning a rough prototype into a sharp one.',
-  },
-  {
-    name: '[MENTOR NAME]',
-    role: 'Software Engineer',
-    org: '[ORGANIZATION]',
-    expertise: 'Infra & data',
-    bio: 'Keeps data pipelines fast and honest — and helps teams do the same overnight.',
-  },
-]
+export const judges: Judge[] = []
 
 export type SponsorTier = {
   tier: string
@@ -261,24 +212,24 @@ export type SponsorTier = {
 }
 
 export const sponsorTiers: SponsorTier[] = [
-  { tier: 'Presenting Sponsor', note: 'Powering Acuity Hacks 2026', logos: ['[PRESENTING SPONSOR]'] },
-  { tier: 'Gold Sponsors', note: '', logos: ['[GOLD SPONSOR]', '[GOLD SPONSOR]', '[GOLD SPONSOR]'] },
-  { tier: 'Silver Sponsors', note: '', logos: ['[SILVER]', '[SILVER]', '[SILVER]', '[SILVER]'] },
-  { tier: 'Community Partners', note: '', logos: ['[PARTNER]', '[PARTNER]', '[PARTNER]', '[PARTNER]', '[PARTNER]'] },
+  { tier: 'Gold Sponsors', note: 'Top-tier event support', logos: ['Your logo here'] },
+  { tier: 'Silver Sponsors', note: 'Supporting student builders', logos: ['Your logo here', 'Your logo here', 'Your logo here'] },
+  { tier: 'Bronze Sponsors', note: 'Helping ideas take shape', logos: ['Your logo here', 'Your logo here', 'Your logo here', 'Your logo here'] },
+  { tier: 'In-kind Partners', note: 'Swag, tools, food & resources', logos: ['Your logo here', 'Your logo here', 'Your logo here', 'Your logo here'] },
 ]
 
 export type Faq = { q: string; a: string }
 
 export const faqs: Faq[] = [
-  { q: 'Who can participate?', a: 'Acuity Hacks is built for high school students and open to middle schoolers. Whether it’s your first hackathon or your tenth, you belong here.' },
-  { q: 'Do I need a team? Can I go solo?', a: 'Both work. Form a team of up to four, or build solo — every prize track is open to solo hackers and teams alike.' },
-  { q: 'Is the event beginner-friendly?', a: 'Yes. Mentors run office hours all weekend, and there’s a Best Beginner Team prize specifically for first-time builders.' },
-  { q: 'Is it in person or online?', a: 'Both. Join us in Santa Clara or participate fully online — the schedule and mentorship work either way.' },
-  { q: 'What can I build?', a: 'Anything on the Machine Learning & Agents theme, across five tracks. Strong execution matters far more than using AI as a surface-level feature.' },
-  { q: 'Are there restrictions on APIs or tools?', a: 'Use any language, framework, or model API you like. We only ask that the core work is built during the event.' },
-  { q: 'Can I use existing code?', a: 'You can use open-source libraries and starter templates, but the project itself should be built during the hackathon. Bringing a finished app is not in the spirit of it.' },
-  { q: 'How are projects judged?', a: 'A panel scores each submission on technical execution, originality, usefulness, effective use of ML or agents, design, completeness, and presentation.' },
-  { q: 'What do I need to submit?', a: 'A working demo and a short write-up explaining what you built, how it works, and what you’d do next.' },
-  { q: 'Is there a participation fee?', a: 'No. Acuity Hacks is free to enter.' },
-  { q: 'Who owns the project?', a: 'You do. You keep full ownership of everything you build.' },
+  { q: 'Who can participate?', a: 'Acuity Hacks is open to middle and high school students. Students at every experience level are welcome.' },
+  { q: 'Do I need a team?', a: 'No. Build solo, register with teammates, or use team matching at the event. Teams may have up to four members.' },
+  { q: 'Is the event in person or online?', a: 'Both. Join at 2933 Bunker Hill Ln in Santa Clara or participate online. Presentation details will keep both groups on the same event timeline.' },
+  { q: 'When will the theme be announced?', a: 'At kickoff. We’ll share hints and a pool of possible themes beforehand, but the final theme stays secret so every team starts together.' },
+  { q: 'What can I build?', a: 'A game, website, app, hardware prototype, data project, or another format that responds to the final theme. Hardware teams should bring their own components.' },
+  { q: 'Can I use AI?', a: 'Yes, but AI should support your work—not produce the entire project for you. Judges will look for your team’s own thinking, technical decisions, and execution.' },
+  { q: 'Can I use existing code or third-party tools?', a: 'Do not bring a premade project. Your submission should be mostly original work created for the hackathon, and every library, asset, model, source, or other third-party contribution must be credited.' },
+  { q: 'How are projects judged?', a: 'A professional panel reviews creativity, impact, complexity, execution and functionality, and the presentation or demo. Final scoring details will be shared with participants.' },
+  { q: 'What will I submit?', a: 'Plan to submit the project itself, attribution for third-party work, and a clear demo. Final submission instructions will be announced before building ends.' },
+  { q: 'When do I need to register?', a: 'Plan to register at least one week before the event. The exact deadline and registration form will be posted here.' },
+  { q: 'What conduct is expected?', a: 'Be professional and treat fellow participants, organizers, judges, and their work with respect. A complete code of conduct will be shared before the event.' },
 ]

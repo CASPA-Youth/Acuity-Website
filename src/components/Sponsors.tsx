@@ -9,8 +9,8 @@ export default function Sponsors() {
         <SectionHeader
           index="09"
           kicker="Sponsors & Partners"
-          title={<>Backed by teams who build.</>}
-          intro="Interested in supporting the next class of ML builders? Reach out — sponsor slots and partner tiers are open."
+          title={<>Help student ideas take shape.</>}
+          intro="We’re welcoming financial and in-kind partners who want to support the next generation of builders with tools, food, prizes, swag, and event resources."
           className="max-w-2xl"
         />
 

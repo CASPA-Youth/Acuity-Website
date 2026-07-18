@@ -5,11 +5,11 @@ import { tracks } from '../data/content'
 
 // Deliberate, varied footprint so no two cards read the same.
 const span: Record<string, string> = {
+  sustainability: 'lg:col-span-2',
   ml: 'lg:col-span-2',
-  agents: 'lg:col-span-1 lg:row-span-2',
-  collab: 'lg:col-span-1',
-  devtools: 'lg:col-span-1',
-  open: 'lg:col-span-2',
+  productivity: 'lg:col-span-1 lg:row-span-2',
+  education: 'lg:col-span-1',
+  health: 'lg:col-span-2',
 }
 
 export default function ChallengeTracks() {
@@ -19,9 +19,9 @@ export default function ChallengeTracks() {
       <div className="shell py-20 lg:py-28">
         <SectionHeader
           index="01"
-          kicker="Challenge Tracks"
-          title={<>Five ways to build.</>}
-          intro="Every track lives under Machine Learning & Agents. Pick the one that fits the idea you can’t stop thinking about — or take the wildcard."
+          kicker="Possible Themes"
+          title={<>One theme. Revealed at kickoff.</>}
+          intro="We’ll share hints as the event gets closer. The final challenge will come from this pool, and every team will discover it together when building begins."
           className="max-w-2xl"
         />
 

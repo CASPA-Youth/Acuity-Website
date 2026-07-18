@@ -3,12 +3,12 @@ import { howItWorks } from '../data/content'
 
 export default function HowItWorks() {
   return (
-    <section id="how" className="light-band section-line relative scroll-mt-24">
+    <section id="how" className="section-line relative scroll-mt-24">
       <div className="shell py-20 lg:py-28">
         <SectionHeader
           index="04"
           kicker="How It Works"
-          title={<>From sign-up to stage, in seven steps.</>}
+          title={<>From sign-up to demo, in seven steps.</>}
           className="max-w-2xl"
         />
 

@@ -91,7 +91,7 @@ export default function Navbar() {
     >
       <nav className="shell flex h-[72px] items-center justify-between" aria-label="Primary">
         <a href="#top" className="flex items-center gap-3" aria-label={`${event.name} home`}>
-          <img src="/logo-mark.png" alt="" aria-hidden="true" className="h-8 w-8" />
+          <img src="/logo-square.png" alt="" aria-hidden="true" className="h-8 w-8" />
           <span className="font-display text-lg font-bold">
             Acuity<span className="text-indigo"> Hacks</span>
           </span>

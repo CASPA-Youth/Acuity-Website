@@ -50,7 +50,7 @@ export default function Hero() {
           >
             <span className="inline-flex items-center gap-2">
               <span className="diamond" />
-              {event.theme}
+              Theme: {event.theme}
             </span>
             <span className="text-faint">·</span>
             <span className="text-faint">by {event.organizer}</span>
@@ -130,7 +130,7 @@ export default function Hero() {
           </motion.dl>
         </div>
 
-        {/* right: agent terminal + mark */}
+        {/* right: build terminal + mark */}
         <motion.div
           className="relative"
           initial={reduce ? false : { opacity: 0, y: 28, scale: 0.98 }}
@@ -139,18 +139,18 @@ export default function Hero() {
         >
           <div className="relative mx-auto max-w-md">
             <img
-              src="/logo-mark.png"
+              src="/logo.png"
               alt=""
               aria-hidden
-              className="absolute -right-4 -top-16 h-28 w-28 opacity-90 drop-shadow-[0_12px_48px_rgba(144,91,244,0.55)] sm:-top-20 sm:h-32 sm:w-32"
+              className="absolute -right-4 -top-16 h-28 w-auto opacity-90 drop-shadow-[0_12px_48px_rgba(144,91,244,0.55)] sm:-top-20 sm:h-32"
             />
             <AgentTrace />
             <div className="mt-4 flex items-center justify-between font-mono text-[11px] uppercase text-faint">
               <span className="inline-flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-indigo animate-blink" />
-                registration open
+                {event.registrationStatus}
               </span>
-              <span>48h · 5 tracks</span>
+              <span>2 days · hybrid</span>
             </div>
           </div>
         </motion.div>

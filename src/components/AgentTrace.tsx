@@ -2,11 +2,11 @@ import { useEffect, useRef, useState } from 'react'
 import { useReducedMotion } from 'framer-motion'
 
 const LINES = [
-  { p: '›', t: 'acuity plan "ship in 48h"', c: 'in' },
-  { p: '↳', t: 'decompose → 4 subtasks', c: 'out' },
-  { p: '↳', t: 'assign agents · route tools', c: 'out' },
-  { p: '↳', t: 'build · test · iterate', c: 'out' },
-  { p: '✓', t: 'demo ready — present.', c: 'ok' },
+  { p: '›', t: 'acuity start "theme revealed"', c: 'in' },
+  { p: '↳', t: 'find a problem worth solving', c: 'out' },
+  { p: '↳', t: 'sketch · choose tools · divide work', c: 'out' },
+  { p: '↳', t: 'build · test · credit sources', c: 'out' },
+  { p: '✓', t: 'prototype ready — present.', c: 'ok' },
 ]
 
 const color: Record<string, string> = {
@@ -48,13 +48,13 @@ export default function AgentTrace() {
     <div
       className="clip-sharp w-full overflow-hidden rounded-lg border border-line bg-[#160a34]/90 font-mono text-[13px] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)]"
       role="img"
-      aria-label="An agent decomposing a hackathon project into subtasks and shipping a demo."
+      aria-label="A hackathon team planning, building, testing, and presenting a prototype."
     >
       <div className="flex items-center gap-2 border-b border-line px-4 py-3">
         <span className="h-2.5 w-2.5 rounded-full bg-heart" />
         <span className="h-2.5 w-2.5 rounded-full bg-indigo/60" />
         <span className="h-2.5 w-2.5 rounded-full bg-indigo/30" />
-        <span className="ml-2 text-[11px] text-faint">agent.trace</span>
+        <span className="ml-2 text-[11px] text-faint">build.trace</span>
       </div>
       <div className="space-y-2 px-5 py-5" aria-hidden="true">
         {LINES.map((line, i) => {

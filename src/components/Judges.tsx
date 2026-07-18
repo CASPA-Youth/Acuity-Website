@@ -17,13 +17,12 @@ export default function Judges() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeader
             index="08"
-            kicker="Judges & Mentors"
+            kicker="Judges"
             title={<>The people in the room.</>}
             className="max-w-xl"
           />
           <p className="max-w-xs font-body text-muted text-pretty">
-            Engineers, researchers, and designers who’ve shipped the real thing — reviewing and
-            mentoring all weekend.
+            A diverse panel of professionals will review every project across the published rubric.
           </p>
         </div>
 
@@ -34,6 +33,21 @@ export default function Judges() {
           viewport={{ once: true, margin: '-60px' }}
           className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
         >
+          {judges.length === 0 && (
+            <motion.li
+              variants={staggerItem}
+              className="clip-sharp rounded-lg border border-indigo/35 bg-[#140a32]/60 p-8 sm:col-span-2 sm:p-10 lg:col-span-3"
+            >
+              <div className="kicker">Panel announcement</div>
+              <h3 className="mt-4 font-display text-2xl font-semibold text-seashell">
+                Judges will be announced soon.
+              </h3>
+              <p className="mt-3 max-w-2xl font-body leading-relaxed text-muted text-pretty">
+                We’re assembling a panel with a mix of technical, creative, and real-world
+                perspectives so every project gets a thoughtful review.
+              </p>
+            </motion.li>
+          )}
           {judges.map((j) => (
             <motion.li
               key={j.name + j.role}

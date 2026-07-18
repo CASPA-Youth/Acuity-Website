@@ -4,18 +4,18 @@ import { event } from '../data/site'
 const principles = [
   {
     n: '01',
-    title: 'Execution over buzzwords',
-    body: 'A model glued onto a demo isn’t a project. We reward things that work — where the intelligence is the reason it’s good, not a label on the box.',
+    title: 'Start together',
+    body: 'The final theme is revealed at kickoff. No premade projects—everyone gets the same starting line and two days to turn an idea into a demo.',
   },
   {
     n: '02',
     title: 'Open to every level',
-    body: 'Built for high schoolers, open to middle schoolers. First hackathon or fifth, solo or in a team of four — the door is the same.',
+    body: 'Middle and high school students can build solo or in a team of up to four. Team matching helps students connect before the clock starts.',
   },
   {
     n: '03',
-    title: 'Real feedback, real panel',
-    body: 'Working engineers and researchers review every submission and score it across seven dimensions. You leave knowing where you stand.',
+    title: 'Original work, clearly shown',
+    body: 'AI and third-party tools can support the build, but the project should reflect your team’s own thinking. Credit what you use and show the panel what you made.',
   },
 ]
 
@@ -37,9 +37,9 @@ export default function EventOverview() {
               }
               intro={
                 <>
-                  {event.name} is a student-run {event.theme} hackathon by {event.organizer}. Pick a
-                  theme, choose a format, and ship a working submission in 48 hours. It’s not about
-                  the flashiest idea — it’s about the one you actually finished.
+                  {event.name} is a student-run build sprint by {event.organizer}. Join in Santa
+                  Clara or online, discover the theme at kickoff, and turn an original idea into a
+                  working submission across two focused days.
                 </>
               }
             />
@@ -69,12 +69,12 @@ export default function EventOverview() {
               <div className="kicker">At a glance</div>
               <dl className="mt-6 divide-y divide-line">
                 {[
-                  ['Who', 'High & middle schoolers'],
+                  ['Who', 'Middle & high schoolers'],
                   ['Format', 'Solo or teams up to 4'],
                   ['Theme', event.theme],
                   ['When', event.date],
                   ['Where', event.location],
-                  ['Cost', 'Free to enter'],
+                  ['Venue', event.venueAddress],
                 ].map(([k, v]) => (
                   <div key={k} className="flex items-baseline justify-between gap-4 py-3.5">
                     <dt className="font-mono text-[12px] uppercase text-faint">

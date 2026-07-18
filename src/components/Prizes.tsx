@@ -1,7 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { SectionHeader, stagger, staggerItem } from './primitives'
 import { prizes } from '../data/content'
-import { event } from '../data/site'
 
 export default function Prizes() {
   const reduce = useReducedMotion()
@@ -15,11 +14,12 @@ export default function Prizes() {
           <SectionHeader
             index="06"
             kicker="Prizes"
-            title={<>{event.prizePool} on the line.</>}
+            title={<>Awards for work that stands out.</>}
             className="max-w-xl"
           />
           <p className="max-w-xs font-body text-muted text-pretty">
-            Prizes span every track, so beginners and veterans both have a real shot.
+            Main category and special awards are planned. Exact prizes and eligibility details will
+            be announced before the event.
           </p>
         </div>
 

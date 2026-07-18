@@ -98,15 +98,6 @@
     background-size: 64px 64px;
   }
 
-  .light-band {
-    background: #efefef;
-    color: #0f032d;
-  }
-
-  .light-band .kicker,
-  .light-band .kicker .text-faint {
-    color: #4e2bcc;
-  }
 }
 
 @layer utilities {

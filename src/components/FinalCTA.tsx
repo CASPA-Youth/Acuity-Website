@@ -14,39 +14,37 @@ export default function FinalCTA() {
 
       <div className="shell relative py-24 text-center lg:py-32">
         <motion.img
-          src="/logo-mark.png"
+          src="/logo.png"
           alt=""
           aria-hidden
-          className="mx-auto h-20 w-20 drop-shadow-[0_12px_48px_rgba(144,91,244,0.55)]"
+          className="mx-auto h-20 w-auto drop-shadow-[0_12px_48px_rgba(144,91,244,0.55)]"
           initial={reduce ? false : { opacity: 0, y: 16, scale: 0.9 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         />
-        <div className="kicker mt-8 justify-center">Registration closes {event.registrationDeadline}</div>
+        <div className="kicker mt-8 justify-center">{event.registrationStatus}</div>
         <h2 className="mx-auto mt-6 max-w-3xl font-display text-4xl font-bold leading-[0.98] text-balance sm:text-5xl lg:text-[4.5rem]">
           Bring the idea.
           <br />
           <span className="text-indigo">We’ll bring the weekend.</span>
         </h2>
         <p className="mx-auto mt-6 max-w-xl font-body text-lg text-muted text-pretty">
-          {event.date} · {event.location}. Solo or team, beginner or veteran — {event.name} is free
-          to enter and open now.
+          {event.date} · {event.location}. Build solo or with a team of up to four, and plan to
+          register at least one week before the event.
         </p>
 
-        {/* countdown placeholder */}
-        <div className="mx-auto mt-10 flex max-w-md items-stretch justify-center gap-2 sm:gap-3">
+        <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-2 sm:grid-cols-3 sm:gap-3">
           {[
-            ['[DD]', 'days'],
-            ['[HH]', 'hrs'],
-            ['[MM]', 'min'],
-            ['[SS]', 'sec'],
+            ['Aug 6–7', 'two days'],
+            ['Hybrid', 'Santa Clara + online'],
+            ['Up to 4', 'students per team'],
           ].map(([v, l]) => (
             <div
               key={l}
-              className="flex-1 rounded-lg border border-line bg-[#140a32]/90 px-2 py-4"
+              className="rounded-lg border border-line bg-[#140a32]/90 px-4 py-4"
             >
-              <div className="font-display text-2xl font-bold text-seashell sm:text-3xl">{v}</div>
+              <div className="font-display text-xl font-bold text-seashell sm:text-2xl">{v}</div>
               <div className="mt-1 font-mono text-[10px] uppercase text-faint">
                 {l}
               </div>
@@ -60,7 +58,7 @@ export default function FinalCTA() {
             disabled
             className="group inline-flex cursor-not-allowed items-center gap-2 rounded-[10px] bg-indigo/70 px-8 py-4 font-display text-lg font-semibold text-midnight"
           >
-            {event.ctaPrimary}
+            {event.registrationStatus}
             <ArrowRight size={20} />
           </button>
           <a
@@ -71,7 +69,7 @@ export default function FinalCTA() {
           </a>
         </div>
         <p id="registration-link" className="mt-4 font-mono text-[11px] uppercase text-faint">
-          Registration link pending: {event.registrationLinkPlaceholder}
+          Check back for the registration form and exact deadline.
         </p>
       </div>
     </section>
