@@ -7,8 +7,7 @@ export default function Hero() {
   const reduce = useReducedMotion()
 
   return (
-    <section id="top" className="hero-glitch-zone relative overflow-hidden pt-[72px]">
-      <span aria-hidden className="hero-scanline" />
+    <section id="top" className="relative overflow-hidden pt-[72px]">
       <div
         aria-hidden
         className="pointer-events-none absolute -right-32 top-24 h-[520px] w-[520px] rotate-45 border border-indigo/20"
@@ -31,9 +30,10 @@ export default function Hero() {
             <span className="text-faint">by {event.organizer}</span>
           </motion.div>
 
-          <h1 className="mt-6 font-display font-bold leading-[0.92]">
+          <h1 className="hero-glitch-title mt-6 font-display font-bold leading-[0.92]">
             <motion.span
-              className="block text-5xl sm:text-6xl lg:text-[5.6rem]"
+              className="hero-glitch hero-glitch-primary block text-5xl sm:text-6xl lg:text-[5.6rem]"
+              data-text="Acuity Hacks"
               initial={reduce ? false : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
