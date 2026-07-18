@@ -5,9 +5,9 @@ import { event } from '../data/site'
 export default function Sponsors() {
   return (
     <section id="sponsors" className="section-line relative scroll-mt-24">
-      <div className="shell py-20 lg:py-28">
+      <div className="shell py-24 lg:py-36">
         <SectionHeader
-          index="09"
+          index="07"
           kicker="Sponsors & Partners"
           title={<>Help student ideas take shape.</>}
           intro="We’re welcoming financial and in-kind partners who want to support the next generation of builders with tools, food, prizes, swag, and event resources."
@@ -17,7 +17,7 @@ export default function Sponsors() {
         <div className="mt-14 space-y-4">
           {sponsorTiers.map((tier, ti) => (
             <Reveal key={tier.tier} delay={ti * 0.05}>
-              <div className="rounded-lg border border-line bg-[#120830]/40 p-6 sm:p-8">
+              <div className="rounded-lg border border-line bg-heart/20 p-7 sm:p-10">
                 <div className="flex items-center gap-3">
                   <span className="diamond" />
                   <h3 className="font-mono text-[12px] uppercase text-indigo">
@@ -52,7 +52,7 @@ export default function Sponsors() {
           ))}
         </div>
 
-        <Reveal className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-lg border border-line bg-[#140a32]/60 px-7 py-5">
+        <Reveal className="mt-10 flex flex-wrap items-center justify-between gap-5 rounded-lg border border-indigo/25 bg-heart/30 px-7 py-6">
           <p className="font-body text-muted">Want your logo here?</p>
           <a
             href={event.contactLink}

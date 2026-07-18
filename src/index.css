@@ -32,9 +32,9 @@
     margin: 0;
     background-color: #0f032d;
     background-image:
-      linear-gradient(rgba(144, 91, 244, 0.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(144, 91, 244, 0.045) 1px, transparent 1px);
-    background-size: 64px 64px;
+      linear-gradient(rgba(239, 239, 239, 0.022) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(239, 239, 239, 0.022) 1px, transparent 1px);
+    background-size: 80px 80px;
     background-attachment: fixed;
     color: #efefef;
     font-family: 'Hanken Grotesk', sans-serif;
@@ -69,6 +69,24 @@
     padding-inline: clamp(20px, 5vw, 72px);
   }
 
+  /* Monad-inspired editorial rails: sections share a precise frame instead of
+     reading as a stack of floating, rounded cards. */
+  .section-line {
+    border-top: 1px solid rgba(239, 239, 239, 0.14);
+  }
+
+  .section-line > .shell {
+    border-inline: 1px solid rgba(239, 239, 239, 0.09);
+  }
+
+  main > .section-line:nth-of-type(even) {
+    background: rgba(78, 43, 204, 0.1);
+  }
+
+  .section-line .rounded-lg {
+    border-radius: 3px;
+  }
+
   /* Mono numbered section kicker — the brand's structural device */
   .kicker {
     font-family: 'Space Mono', monospace;
@@ -94,11 +112,119 @@
   /* Subtle precision grid used behind select sections */
   .reticle-grid {
     background-image:
-      linear-gradient(rgba(144, 91, 244, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(144, 91, 244, 0.06) 1px, transparent 1px);
-    background-size: 64px 64px;
+      linear-gradient(rgba(15, 3, 45, 0.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 3, 45, 0.12) 1px, transparent 1px);
+    background-size: 48px 48px;
   }
 
+  /* A short, infrequent signal break keeps the hero energetic without making
+     the headline difficult to read. The duplicate layers use only brand colors. */
+  .hero-glitch {
+    position: relative;
+    width: fit-content;
+    isolation: isolate;
+  }
+
+  .hero-glitch::before,
+  .hero-glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .hero-glitch::before {
+    color: #905bf4;
+    text-shadow: -3px 0 #4e2bcc;
+    animation: glitch-slice-a 5.8s steps(1, end) infinite;
+  }
+
+  .hero-glitch::after {
+    color: #905bf4;
+    text-shadow: 3px 0 #efefef;
+    animation: glitch-slice-b 5.8s steps(1, end) infinite;
+  }
+
+  .hero-scanline {
+    position: absolute;
+    inset-inline: 0;
+    top: 18%;
+    z-index: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #4e2bcc, #905bf4, transparent);
+    opacity: 0;
+    pointer-events: none;
+    animation: hero-scan 5.8s ease-in-out infinite;
+  }
+
+}
+
+@keyframes glitch-slice-a {
+  0%, 82%, 88%, 100% {
+    opacity: 0;
+    transform: translate(0);
+    clip-path: inset(0 0 100% 0);
+  }
+  83% {
+    opacity: 0.85;
+    transform: translate(-5px, 1px);
+    clip-path: inset(12% 0 61% 0);
+  }
+  84% {
+    opacity: 0.65;
+    transform: translate(4px, -1px);
+    clip-path: inset(58% 0 16% 0);
+  }
+  86% {
+    opacity: 0.8;
+    transform: translate(-2px, 0);
+    clip-path: inset(36% 0 43% 0);
+  }
+}
+
+@keyframes glitch-slice-b {
+  0%, 82.5%, 88%, 100% {
+    opacity: 0;
+    transform: translate(0);
+    clip-path: inset(100% 0 0 0);
+  }
+  83.5% {
+    opacity: 0.55;
+    transform: translate(5px, -1px);
+    clip-path: inset(67% 0 8% 0);
+  }
+  85% {
+    opacity: 0.8;
+    transform: translate(-4px, 1px);
+    clip-path: inset(21% 0 55% 0);
+  }
+  87% {
+    opacity: 0.6;
+    transform: translate(2px, 0);
+    clip-path: inset(48% 0 29% 0);
+  }
+}
+
+@keyframes hero-scan {
+  0%, 81%, 89%, 100% {
+    opacity: 0;
+    transform: translateY(-12px) scaleX(0.25);
+  }
+  83% {
+    opacity: 0.45;
+  }
+  88% {
+    opacity: 0;
+    transform: translateY(360px) scaleX(1);
+  }
+}
+
+@media (pointer: fine) {
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: none !important;
+  }
 }
 
 @layer utilities {

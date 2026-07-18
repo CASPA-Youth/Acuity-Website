@@ -11,11 +11,11 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="section-line relative scroll-mt-24">
-      <div className="shell py-20 lg:py-28">
+      <div className="shell py-24 lg:py-36">
         <div className="grid gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
           <div>
             <SectionHeader
-              index="10"
+              index="08"
               kicker="FAQ"
               title={<>Questions, answered.</>}
               intro="Still stuck? We’re one email away."
@@ -29,7 +29,7 @@ export default function FAQ() {
             </a>
           </div>
 
-          <ul className="divide-y divide-line rounded-lg border border-line bg-[#120830]/40">
+          <ul className="divide-y divide-line rounded-lg border border-indigo/20 bg-heart/25">
             {faqs.map((f, i) => {
               const isOpen = open === i
               const panelId = `faq-panel-${i}`
@@ -43,7 +43,7 @@ export default function FAQ() {
                       aria-expanded={isOpen}
                       aria-controls={panelId}
                       onClick={() => setOpen(isOpen ? null : i)}
-                      className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors hover:bg-[#160a34] sm:px-7"
+                      className="flex w-full items-center justify-between gap-6 px-7 py-6 text-left transition-colors hover:bg-heart/30 sm:px-9 sm:py-7"
                     >
                       <span className="font-display text-lg font-semibold text-seashell">
                         {f.q}
@@ -69,7 +69,7 @@ export default function FAQ() {
                         transition={{ duration: reduce ? 0 : 0.3, ease: [0.22, 1, 0.36, 1] }}
                         className="overflow-hidden"
                       >
-                        <p className="px-6 pb-6 font-body leading-relaxed text-muted text-pretty sm:px-7">
+                        <p className="max-w-2xl px-7 pb-8 font-body leading-relaxed text-muted text-pretty sm:px-9">
                           {f.a}
                         </p>
                       </motion.div>

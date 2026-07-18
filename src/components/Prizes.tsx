@@ -9,7 +9,7 @@ export default function Prizes() {
 
   return (
     <section id="prizes" className="section-line relative scroll-mt-24">
-      <div className="shell py-20 lg:py-28">
+      <div className="shell py-24 lg:py-36">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeader
             index="06"
@@ -66,7 +66,7 @@ export default function Prizes() {
               <motion.li
                 key={p.title}
                 variants={staggerItem}
-                className={`group rounded-lg border border-line bg-[#140a32]/60 p-6 transition-all hover:border-indigo/50 hover:bg-[#180d3c] ${
+                className={`group rounded-lg border border-line bg-heart/20 p-7 transition-all hover:border-indigo/50 hover:bg-heart/40 ${
                   p.size === 'major' ? 'sm:col-span-1' : ''
                 }`}
               >

@@ -22,7 +22,7 @@ const principles = [
 export default function EventOverview() {
   return (
     <section id="about" className="section-line relative scroll-mt-24">
-      <div className="shell py-20 lg:py-28">
+      <div className="shell py-24 lg:py-36">
         <div className="grid gap-14 lg:grid-cols-[1fr_0.82fr] lg:gap-20">
           <div>
             <SectionHeader
@@ -44,10 +44,10 @@ export default function EventOverview() {
               }
             />
 
-            <div className="mt-12 space-y-px overflow-hidden rounded-lg border border-line bg-line">
+            <div className="mt-16 space-y-px overflow-hidden rounded-lg border border-line bg-line">
               {principles.map((p) => (
                 <Reveal key={p.n}>
-                  <div className="group grid grid-cols-[auto_1fr] gap-5 bg-midnight p-6 transition-colors hover:bg-[#160a34] sm:p-7">
+                  <div className="group grid grid-cols-[auto_1fr] gap-6 bg-midnight p-7 transition-colors hover:bg-heart/10 sm:p-9">
                     <span className="font-mono text-sm text-indigo">{p.n}</span>
                     <div>
                       <h3 className="font-display text-xl font-semibold">
@@ -65,7 +65,7 @@ export default function EventOverview() {
 
           {/* aside: at-a-glance facts */}
           <Reveal delay={0.1} className="lg:pt-16">
-            <div className="clip-sharp sticky top-24 rounded-lg border border-line bg-[#160a34] p-7 sm:p-8">
+            <div className="clip-sharp sticky top-24 rounded-lg border border-indigo/25 bg-heart/30 p-8 sm:p-10">
               <div className="kicker">At a glance</div>
               <dl className="mt-6 divide-y divide-line">
                 {[

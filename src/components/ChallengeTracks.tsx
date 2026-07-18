@@ -23,7 +23,7 @@ export default function ChallengeTracks() {
 
   return (
     <section id="challenges" className="section-line relative scroll-mt-24">
-      <div className="shell py-20 lg:py-28">
+      <div className="shell py-24 lg:py-36">
         <SectionHeader
           index="01"
           kicker="Possible Themes"
@@ -33,7 +33,7 @@ export default function ChallengeTracks() {
         />
 
         <div
-          className="mt-14 overflow-hidden rounded-lg border border-line bg-[#140a32]/60"
+          className="mt-16 overflow-hidden rounded-lg border border-indigo/25 bg-heart/25"
           role="region"
           aria-roledescription="carousel"
           aria-label="Possible hackathon themes"

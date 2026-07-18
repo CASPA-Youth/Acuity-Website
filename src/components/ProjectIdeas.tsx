@@ -10,7 +10,7 @@ export default function ProjectIdeas() {
 
   return (
     <section id="ideas" className="section-line relative scroll-mt-24">
-      <div className="shell py-20 lg:py-28">
+      <div className="shell py-24 lg:py-36">
         <SectionHeader
           index="02"
           kicker="Project Formats"
@@ -33,8 +33,8 @@ export default function ProjectIdeas() {
                     aria-pressed={isActive}
                     className={`group flex w-full items-center justify-between gap-4 rounded-lg border px-5 py-4 text-left transition-all duration-200 ${
                       isActive
-                        ? 'border-indigo/60 bg-[#180d3c]'
-                        : 'border-line bg-[#120830]/50 hover:border-indigo/40 hover:bg-[#160a34]'
+                        ? 'border-indigo/70 bg-heart'
+                        : 'border-line bg-heart/15 hover:border-indigo/40 hover:bg-heart/30'
                     }`}
                   >
                     <span className="flex items-center gap-3">
@@ -57,7 +57,7 @@ export default function ProjectIdeas() {
           </ul>
 
           {/* detail panel */}
-          <div className="clip-sharp relative min-h-[320px] overflow-hidden rounded-lg border border-line bg-[#160a34] p-7 sm:p-8 lg:sticky lg:top-24">
+          <div className="clip-sharp relative min-h-[320px] overflow-hidden rounded-lg border border-indigo/25 bg-heart/25 p-8 sm:p-10 lg:sticky lg:top-24">
             <AnimatePresence mode="wait">
               <motion.div
                 key={current.title}

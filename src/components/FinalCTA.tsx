@@ -16,7 +16,7 @@ export default function FinalCTA() {
           src="/logo.png"
           alt=""
           aria-hidden
-          className="mx-auto h-20 w-auto drop-shadow-[0_12px_48px_rgba(144,91,244,0.55)]"
+          className="mx-auto h-20 w-auto drop-shadow-[0_12px_42px_rgba(144,91,244,0.3)]"
           initial={reduce ? false : { opacity: 0, y: 16, scale: 0.9 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
@@ -47,10 +47,12 @@ export default function FinalCTA() {
             ['Aug 6–7', 'two days'],
             ['Hybrid', 'Santa Clara + online'],
             ['Up to 4', 'students per team'],
-          ].map(([v, l]) => (
+          ].map(([v, l], index) => (
             <div
               key={l}
-              className="rounded-lg border border-line bg-[#140a32]/90 px-4 py-4"
+              className={`rounded-lg border border-line px-5 py-5 ${
+                index === 1 ? 'bg-heart' : 'bg-heart/20'
+              }`}
             >
               <div className="font-display text-xl font-bold text-seashell sm:text-2xl">{v}</div>
               <div className="mt-1 font-mono text-[10px] uppercase text-faint">

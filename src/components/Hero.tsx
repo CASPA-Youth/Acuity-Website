@@ -7,7 +7,8 @@ export default function Hero() {
   const reduce = useReducedMotion()
 
   return (
-    <section id="top" className="relative overflow-hidden pt-[72px]">
+    <section id="top" className="hero-glitch-zone relative overflow-hidden pt-[72px]">
+      <span aria-hidden className="hero-scanline" />
       <div
         aria-hidden
         className="pointer-events-none absolute -right-32 top-24 h-[520px] w-[520px] rotate-45 border border-indigo/20"
@@ -40,7 +41,8 @@ export default function Hero() {
               Acuity Hacks
             </motion.span>
             <motion.span
-              className="mt-1 block text-5xl text-indigo sm:text-6xl lg:text-[5.6rem]"
+              className="hero-glitch mt-1 block text-5xl text-indigo sm:text-6xl lg:text-[5.6rem]"
+              data-text={event.tagline}
               initial={reduce ? false : { opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.13, ease: [0.22, 1, 0.36, 1] }}
@@ -68,14 +70,14 @@ export default function Hero() {
               href={event.registrationLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 rounded-[10px] bg-indigo px-7 py-3.5 font-display font-semibold text-midnight shadow-[0_14px_36px_-12px_rgba(144,91,244,0.8)] transition-all hover:-translate-y-0.5 hover:bg-indigo-soft"
+              className="group inline-flex items-center gap-2 rounded-[8px] bg-indigo px-7 py-3.5 font-display font-semibold text-midnight shadow-[0_14px_36px_-16px_rgba(144,91,244,0.55)] transition-all hover:-translate-y-0.5 hover:bg-indigo-soft"
             >
               {event.ctaPrimary}
               <ArrowRight size={18} className="transition-transform group-hover:translate-x-0.5" />
             </a>
             <a
               href="#challenges"
-              className="group inline-flex items-center gap-2 rounded-[10px] border-[1.5px] border-indigo/70 px-7 py-3.5 font-display font-semibold text-indigo transition-all hover:-translate-y-0.5 hover:border-indigo hover:bg-indigo/10"
+              className="group inline-flex items-center gap-2 rounded-[10px] bg-heart px-7 py-3.5 font-display font-semibold text-seashell transition-all hover:-translate-y-0.5 hover:bg-indigo hover:text-midnight"
             >
               <Compass size={18} />
               {event.ctaSecondary}

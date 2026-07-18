@@ -98,7 +98,7 @@ export function CTA({ children, href, variant = 'primary', className = '', exter
     'group inline-flex items-center justify-center gap-2 rounded-[10px] font-display font-semibold text-base px-7 py-3.5 transition-all duration-200 focus-visible:outline-2'
   const styles =
     variant === 'primary'
-      ? 'bg-indigo text-midnight hover:bg-indigo-soft hover:-translate-y-0.5 active:translate-y-0 shadow-[0_10px_30px_-10px_rgba(144,91,244,0.7)]'
+      ? 'bg-indigo text-midnight hover:bg-indigo-soft hover:-translate-y-0.5 active:translate-y-0 shadow-[0_10px_30px_-12px_rgba(144,91,244,0.5)]'
       : 'border-[1.5px] border-indigo/70 text-indigo hover:border-indigo hover:bg-indigo/10 hover:-translate-y-0.5 active:translate-y-0'
   return (
     <a

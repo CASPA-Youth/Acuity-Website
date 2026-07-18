@@ -8,12 +8,12 @@ export default {
         heart: '#4E2BCC',
         indigo: {
           DEFAULT: '#905BF4',
-          soft: '#b28cff',
+          soft: '#EFEFEF',
         },
         seashell: '#EFEFEF',
-        muted: '#cfc9de',
-        faint: '#8a80a8',
-        line: 'rgba(144,91,244,0.22)',
+        muted: 'rgba(239,239,239,0.72)',
+        faint: 'rgba(239,239,239,0.48)',
+        line: 'rgba(239,239,239,0.14)',
       },
       fontFamily: {
         display: ['"Space Grotesk"', 'sans-serif'],

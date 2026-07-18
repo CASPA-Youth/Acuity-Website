@@ -4,7 +4,7 @@ import { criteria } from '../data/content'
 export default function JudgingCriteria() {
   return (
     <section id="judging" className="section-line relative scroll-mt-24">
-      <div className="shell py-20 lg:py-28">
+      <div className="shell py-24 lg:py-36">
         <div className="grid gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
           <SectionHeader
             index="07"
@@ -17,7 +17,7 @@ export default function JudgingCriteria() {
             {criteria.map((c) => (
               <li
                 key={c.index}
-                className="group grid grid-cols-[auto_1fr] items-center gap-5 bg-midnight px-6 py-5 transition-colors hover:bg-[#160a34] sm:px-7"
+                className="group grid grid-cols-[auto_1fr] items-center gap-7 bg-midnight px-7 py-7 transition-colors hover:bg-heart/10 sm:px-9"
               >
                 <span className="font-mono text-sm text-indigo">{c.index}</span>
                 <div>

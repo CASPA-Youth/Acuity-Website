@@ -7,8 +7,6 @@ import Benefits from './components/Benefits'
 import HowItWorks from './components/HowItWorks'
 import Schedule from './components/Schedule'
 import Prizes from './components/Prizes'
-import JudgingCriteria from './components/JudgingCriteria'
-import Judges from './components/Judges'
 import Sponsors from './components/Sponsors'
 import FAQ from './components/FAQ'
 import FinalCTA from './components/FinalCTA'
@@ -35,8 +33,6 @@ export default function App() {
         <HowItWorks />
         <Schedule />
         <Prizes />
-        <JudgingCriteria />
-        <Judges />
         <Sponsors />
         <FAQ />
         <FinalCTA />

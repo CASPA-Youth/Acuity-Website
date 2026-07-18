@@ -13,7 +13,7 @@ export default function Judges() {
   const reduce = useReducedMotion()
   return (
     <section id="judges" className="section-line relative scroll-mt-24">
-      <div className="shell py-20 lg:py-28">
+      <div className="shell py-24 lg:py-36">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeader
             index="08"
@@ -36,7 +36,7 @@ export default function Judges() {
           {judges.length === 0 && (
             <motion.li
               variants={staggerItem}
-              className="clip-sharp rounded-lg border border-indigo/35 bg-[#140a32]/60 p-8 sm:col-span-2 sm:p-10 lg:col-span-3"
+              className="clip-sharp rounded-lg border border-indigo/25 bg-heart/30 p-8 sm:col-span-2 sm:p-12 lg:col-span-3"
             >
               <div className="kicker">Panel announcement</div>
               <h3 className="mt-4 font-display text-2xl font-semibold text-seashell">
@@ -52,7 +52,7 @@ export default function Judges() {
             <motion.li
               key={j.name + j.role}
               variants={staggerItem}
-              className="group relative overflow-hidden rounded-lg border border-line bg-[#140a32]/60 p-6 transition-all hover:border-indigo/50 hover:bg-[#180d3c]"
+              className="group relative overflow-hidden rounded-lg border border-line bg-heart/20 p-7 transition-all hover:border-indigo/50 hover:bg-heart/40"
             >
               <div className="flex items-center gap-4">
                 <span
@@ -60,7 +60,7 @@ export default function Judges() {
                   className="relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-lg border border-indigo/40 font-display text-lg font-bold text-seashell"
                   style={{
                     background:
-                      'radial-gradient(120% 120% at 25% 20%, rgba(144,91,244,0.55), rgba(78,43,204,0.35) 55%, rgba(15,3,45,0.9))',
+                      'radial-gradient(120% 120% at 25% 20%, rgba(144,91,244,0.5), rgba(78,43,204,0.32) 55%, rgba(15,3,45,0.95))',
                   }}
                 >
                   {initials(j.name)}

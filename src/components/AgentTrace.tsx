@@ -46,7 +46,7 @@ export default function AgentTrace() {
 
   return (
     <div
-      className="clip-sharp w-full overflow-hidden rounded-lg border border-line bg-[#160a34]/90 font-mono text-[14px] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)] sm:text-[15px]"
+      className="clip-sharp w-full overflow-hidden rounded-lg border border-line bg-midnight font-mono text-[14px] shadow-[0_30px_80px_-40px_rgba(15,3,45,0.9)] sm:text-[15px]"
       role="img"
       aria-label="A hackathon team planning, building, testing, and presenting a prototype."
     >

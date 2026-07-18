@@ -20,6 +20,8 @@ export default function CursorReticle() {
   useEffect(() => {
     if (reduce || !window.matchMedia('(pointer: fine)').matches) return
 
+    document.documentElement.classList.add('has-custom-cursor')
+
     const move = (event: PointerEvent) => {
       x.set(event.clientX)
       y.set(event.clientY)
@@ -44,35 +46,24 @@ export default function CursorReticle() {
       document.documentElement.removeEventListener('mouseleave', hide)
       window.removeEventListener('blur', hide)
       window.clearTimeout(recoilTimer.current)
+      document.documentElement.classList.remove('has-custom-cursor')
     }
   }, [reduce, x, y])
 
   if (reduce) return null
 
   return (
-    <div aria-hidden className="pointer-events-none fixed inset-0 z-[45] hidden md:block">
-      <motion.div
-        className="fixed inset-y-0 w-px bg-indigo/20"
-        style={{ left: x, marginLeft: -0.5 }}
-        animate={{ opacity: visible ? 1 : 0 }}
-        transition={{ duration: 0.1 }}
-      />
-      <motion.div
-        className="fixed inset-x-0 h-px bg-indigo/20"
-        style={{ top: y, marginTop: -0.5 }}
-        animate={{ opacity: visible ? 1 : 0 }}
-        transition={{ duration: 0.1 }}
-      />
+    <div aria-hidden className="pointer-events-none fixed inset-0 z-[55] hidden md:block">
       <motion.div
         className="fixed"
-        style={{ left: x, top: y, width: 72, height: 72, marginLeft: -36, marginTop: -36 }}
+        style={{ left: x, top: y, width: 42, height: 42, marginLeft: -21, marginTop: -21 }}
         animate={{ opacity: visible ? 0.9 : 0 }}
         transition={{ duration: 0.1 }}
       >
         <motion.img
           src="/scope.png"
           alt=""
-          className="h-full w-full object-contain drop-shadow-[0_0_12px_rgba(144,91,244,0.5)]"
+          className="h-full w-full object-contain drop-shadow-[0_0_7px_rgba(144,91,244,0.45)]"
           animate={{
             scale: visible ? (firing ? 0.76 : 1) : 0.75,
             rotate: firing ? -8 : 0,
@@ -84,13 +75,13 @@ export default function CursorReticle() {
       {shots.map((shot) => (
         <span
           key={shot.id}
-          className="fixed h-7 w-7"
-          style={{ left: shot.x, top: shot.y, marginLeft: -14, marginTop: -14 }}
+          className="fixed h-5 w-5"
+          style={{ left: shot.x, top: shot.y, marginLeft: -10, marginTop: -10 }}
         >
           <motion.span
-            className="block h-full w-full rounded-full border-2 border-indigo shadow-[0_0_18px_rgba(144,91,244,0.9)]"
+            className="block h-full w-full rounded-full border border-indigo shadow-[0_0_12px_rgba(144,91,244,0.75)]"
             initial={{ opacity: 1, scale: 0.25 }}
-            animate={{ opacity: 0, scale: 6 }}
+            animate={{ opacity: 0, scale: 4.5 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
             onAnimationComplete={() =>
               setShots((current) => current.filter((item) => item.id !== shot.id))

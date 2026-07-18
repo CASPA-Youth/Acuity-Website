@@ -29,6 +29,5 @@ export const navLinks = [
   { label: 'Themes', href: '#challenges' },
   { label: 'Schedule', href: '#schedule' },
   { label: 'Prizes', href: '#prizes' },
-  { label: 'Judges', href: '#judges' },
   { label: 'FAQ', href: '#faq' },
 ]

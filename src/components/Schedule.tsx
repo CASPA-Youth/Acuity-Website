@@ -5,7 +5,7 @@ export default function Schedule() {
   let lastDay = ''
   return (
     <section id="schedule" className="section-line relative scroll-mt-24">
-      <div className="shell py-20 lg:py-28">
+      <div className="shell py-24 lg:py-36">
         <div className="grid gap-14 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
           <SectionHeader
             index="05"
@@ -47,8 +47,8 @@ export default function Schedule() {
                       <div
                         className={`rounded-lg border px-5 py-3 transition-colors sm:my-1 ${
                           item.highlight
-                            ? 'border-indigo/50 bg-[#180d3c]'
-                            : 'border-transparent group-hover:border-line group-hover:bg-[#140a32]/50'
+                            ? 'border-indigo/50 bg-heart/45'
+                            : 'border-transparent group-hover:border-line group-hover:bg-heart/20'
                         }`}
                       >
                         <div className="flex flex-wrap items-baseline gap-x-3">
