@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* fixed navbar offset for anchor jumps */
+    scroll-padding-top: 88px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    margin: 0;
+    background-color: #0f032d;
+    color: #efefef;
+    font-family: 'Hanken Grotesk', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: #905bf4;
+    color: #0f032d;
+  }
+
+  /* Consistent, visible keyboard focus across the whole site */
+  :focus-visible {
+    outline: 2px solid #905bf4;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@layer components {
+  .shell {
+    width: 100%;
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-inline: clamp(20px, 5vw, 72px);
+  }
+
+  /* Mono numbered section kicker — the brand's structural device */
+  .kicker {
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: #905bf4;
+  }
+
+  .section-line {
+    border-top: 1px solid rgba(144, 91, 244, 0.22);
+  }
+
+  /* Signature surface: sharpened top-right corner echoing the spearhead */
+  .clip-sharp {
+    clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
+  }
+
+  .diamond {
+    width: 8px;
+    height: 8px;
+    background: #905bf4;
+    transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+
+  /* Subtle precision grid used behind select sections */
+  .reticle-grid {
+    background-image:
+      linear-gradient(rgba(144, 91, 244, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(144, 91, 244, 0.06) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .light-band {
+    background: #efefef;
+    color: #0f032d;
+  }
+
+  .light-band .kicker,
+  .light-band .kicker .text-faint {
+    color: #4e2bcc;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}

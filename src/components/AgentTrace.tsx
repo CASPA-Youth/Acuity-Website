@@ -1,0 +1,84 @@
+import { useEffect, useRef, useState } from 'react'
+import { useReducedMotion } from 'framer-motion'
+
+const LINES = [
+  { p: '›', t: 'acuity plan "ship in 48h"', c: 'in' },
+  { p: '↳', t: 'decompose → 4 subtasks', c: 'out' },
+  { p: '↳', t: 'assign agents · route tools', c: 'out' },
+  { p: '↳', t: 'build · test · iterate', c: 'out' },
+  { p: '✓', t: 'demo ready — present.', c: 'ok' },
+]
+
+const color: Record<string, string> = {
+  in: 'text-seashell',
+  out: 'text-muted',
+  ok: 'text-indigo',
+}
+
+export default function AgentTrace() {
+  const reduce = useReducedMotion()
+  const [visible, setVisible] = useState(reduce ? LINES.length : 0)
+  const [typed, setTyped] = useState(reduce ? 999 : 0)
+  const timer = useRef<number>()
+  const effectiveVisible = reduce ? LINES.length : visible
+
+  useEffect(() => {
+    if (reduce) return
+    // Type out the current line, then reveal the next, looping gently.
+    const current = LINES[visible % LINES.length]
+    if (visible >= LINES.length) {
+      timer.current = window.setTimeout(() => {
+        setVisible(0)
+        setTyped(0)
+      }, 2600)
+      return
+    }
+    if (typed < current.t.length) {
+      timer.current = window.setTimeout(() => setTyped((n) => n + 1), 34)
+    } else {
+      timer.current = window.setTimeout(() => {
+        setVisible((v) => v + 1)
+        setTyped(0)
+      }, 420)
+    }
+    return () => window.clearTimeout(timer.current)
+  }, [visible, typed, reduce])
+
+  return (
+    <div
+      className="clip-sharp w-full overflow-hidden rounded-lg border border-line bg-[#160a34]/90 font-mono text-[13px] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)]"
+      role="img"
+      aria-label="An agent decomposing a hackathon project into subtasks and shipping a demo."
+    >
+      <div className="flex items-center gap-2 border-b border-line px-4 py-3">
+        <span className="h-2.5 w-2.5 rounded-full bg-heart" />
+        <span className="h-2.5 w-2.5 rounded-full bg-indigo/60" />
+        <span className="h-2.5 w-2.5 rounded-full bg-indigo/30" />
+        <span className="ml-2 text-[11px] text-faint">agent.trace</span>
+      </div>
+      <div className="space-y-2 px-5 py-5" aria-hidden="true">
+        {LINES.map((line, i) => {
+          const isCurrent = i === effectiveVisible
+          const isDone = i < effectiveVisible
+          if (!isCurrent && !isDone) {
+            return (
+              <div key={i} className="h-[18px]" />
+            )
+          }
+          const text = isDone ? line.t : line.t.slice(0, typed)
+          return (
+            <div key={i} className="flex items-start gap-2 leading-[18px]">
+              <span className="text-indigo">{line.p}</span>
+              <span className={color[line.c]}>
+                {text}
+                {isCurrent && !reduce && (
+                  <span className="ml-0.5 inline-block h-[13px] w-[7px] translate-y-[1px] animate-blink bg-indigo align-middle" />
+                )}
+              </span>
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  )
+}
