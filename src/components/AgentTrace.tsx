@@ -46,28 +46,28 @@ export default function AgentTrace() {
 
   return (
     <div
-      className="clip-sharp w-full overflow-hidden rounded-lg border border-line bg-[#160a34]/90 font-mono text-[13px] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)]"
+      className="clip-sharp w-full overflow-hidden rounded-lg border border-line bg-[#160a34]/90 font-mono text-[14px] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)] sm:text-[15px]"
       role="img"
       aria-label="A hackathon team planning, building, testing, and presenting a prototype."
     >
-      <div className="flex items-center gap-2 border-b border-line px-4 py-3">
+      <div className="flex items-center gap-2 border-b border-line px-5 py-4">
         <span className="h-2.5 w-2.5 rounded-full bg-heart" />
         <span className="h-2.5 w-2.5 rounded-full bg-indigo/60" />
         <span className="h-2.5 w-2.5 rounded-full bg-indigo/30" />
         <span className="ml-2 text-[11px] text-faint">build.trace</span>
       </div>
-      <div className="space-y-2 px-5 py-5" aria-hidden="true">
+      <div className="min-h-[230px] space-y-3 px-6 py-6" aria-hidden="true">
         {LINES.map((line, i) => {
           const isCurrent = i === effectiveVisible
           const isDone = i < effectiveVisible
           if (!isCurrent && !isDone) {
             return (
-              <div key={i} className="h-[18px]" />
+              <div key={i} className="h-[22px]" />
             )
           }
           const text = isDone ? line.t : line.t.slice(0, typed)
           return (
-            <div key={i} className="flex items-start gap-2 leading-[18px]">
+            <div key={i} className="flex items-start gap-2 leading-[22px]">
               <span className="text-indigo">{line.p}</span>
               <span className={color[line.c]}>
                 {text}

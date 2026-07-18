@@ -69,23 +69,38 @@ export default function EventOverview() {
               <div className="kicker">At a glance</div>
               <dl className="mt-6 divide-y divide-line">
                 {[
-                  ['Who', 'Middle & high schoolers'],
-                  ['Format', 'Solo or teams up to 4'],
-                  ['Theme', event.theme],
-                  ['When', event.date],
-                  ['Where', event.location],
-                  ['Venue', event.venueAddress],
-                ].map(([k, v]) => (
-                  <div key={k} className="flex items-baseline justify-between gap-4 py-3.5">
+                  { key: 'Who', value: 'Middle & high schoolers' },
+                  { key: 'Format', value: 'Solo or teams up to 4' },
+                  { key: 'Theme', value: event.theme },
+                  { key: 'When', value: event.date },
+                  { key: 'Where', value: event.location, href: event.mapsLink },
+                  { key: 'Venue', value: event.venueAddress, href: event.mapsLink },
+                ].map((fact) => (
+                  <div key={fact.key} className="flex items-baseline justify-between gap-4 py-3.5">
                     <dt className="font-mono text-[12px] uppercase text-faint">
-                      {k}
+                      {fact.key}
                     </dt>
-                    <dd className="text-right font-display font-semibold text-seashell">{v}</dd>
+                    <dd className="max-w-[72%] text-right font-display font-semibold text-seashell">
+                      {fact.href ? (
+                        <a
+                          href={fact.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="underline decoration-indigo/50 underline-offset-4 transition-colors hover:text-indigo"
+                        >
+                          {fact.value}
+                        </a>
+                      ) : (
+                        fact.value
+                      )}
+                    </dd>
                   </div>
                 ))}
               </dl>
               <a
                 href={event.registrationLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-7 flex w-full items-center justify-center rounded-[10px] bg-indigo px-6 py-3.5 font-display font-semibold text-midnight transition-all hover:-translate-y-0.5 hover:bg-indigo-soft"
               >
                 {event.ctaPrimary}

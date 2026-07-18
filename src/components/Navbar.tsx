@@ -125,6 +125,8 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <a
             href={event.registrationLink}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden rounded-[10px] bg-indigo px-5 py-2.5 font-display text-sm font-semibold text-midnight transition-all hover:bg-indigo-soft hover:-translate-y-0.5 sm:inline-flex"
           >
             {event.ctaPrimary}
@@ -167,6 +169,8 @@ export default function Navbar() {
               ))}
               <a
                 href={event.registrationLink}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
                 className="mt-3 inline-flex items-center justify-center rounded-[10px] bg-indigo px-5 py-3.5 font-display font-semibold text-midnight"
               >

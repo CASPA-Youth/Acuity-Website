@@ -23,7 +23,7 @@ export default function Benefits() {
             />
             <div className="kicker relative text-midnight/70">03 / Why Participate</div>
             <h2 className="relative mt-8 max-w-xl font-display text-3xl font-bold leading-[1.05] text-midnight text-balance sm:text-4xl lg:text-[2.9rem]">
-              A weekend is enough time to build something you’re proud to show.
+              Two focused days are enough to build something you’re proud to show.
             </h2>
             <p className="relative mt-5 max-w-md font-body text-lg leading-relaxed text-midnight/80">
               You leave with a working project, sharper skills, people who build like you do, and a

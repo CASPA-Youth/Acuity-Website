@@ -6,7 +6,6 @@ export default function FinalCTA() {
   const reduce = useReducedMotion()
   return (
     <section id="register" className="section-line relative overflow-hidden scroll-mt-24">
-      <div aria-hidden className="reticle-grid pointer-events-none absolute inset-0 opacity-60" />
       <div
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rotate-45 border border-indigo/25"
@@ -27,11 +26,20 @@ export default function FinalCTA() {
         <h2 className="mx-auto mt-6 max-w-3xl font-display text-4xl font-bold leading-[0.98] text-balance sm:text-5xl lg:text-[4.5rem]">
           Bring the idea.
           <br />
-          <span className="text-indigo">We’ll bring the weekend.</span>
+          <span className="text-indigo">We’ll bring the build sprint.</span>
         </h2>
         <p className="mx-auto mt-6 max-w-xl font-body text-lg text-muted text-pretty">
-          {event.date} · {event.location}. Build solo or with a team of up to four, and plan to
-          register at least one week before the event.
+          {event.date} ·{' '}
+          <a
+            href={event.mapsLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-indigo/50 underline-offset-4 transition-colors hover:text-indigo"
+          >
+            {event.location}
+          </a>
+          . Build solo or with a team of up to four, and register at least one week before the
+          event.
         </p>
 
         <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-2 sm:grid-cols-3 sm:gap-3">
@@ -53,14 +61,15 @@ export default function FinalCTA() {
         </div>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <button
-            type="button"
-            disabled
-            className="group inline-flex cursor-not-allowed items-center gap-2 rounded-[10px] bg-indigo/70 px-8 py-4 font-display text-lg font-semibold text-midnight"
+          <a
+            href={event.registrationLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 rounded-[10px] bg-indigo px-8 py-4 font-display text-lg font-semibold text-midnight transition-all hover:-translate-y-0.5 hover:bg-indigo-soft"
           >
-            {event.registrationStatus}
-            <ArrowRight size={20} />
-          </button>
+            {event.ctaPrimary}
+            <ArrowRight size={20} className="transition-transform group-hover:translate-x-0.5" />
+          </a>
           <a
             href={event.contactLink}
             className="font-mono text-[13px] uppercase text-muted transition-colors hover:text-indigo"
@@ -69,7 +78,7 @@ export default function FinalCTA() {
           </a>
         </div>
         <p id="registration-link" className="mt-4 font-mono text-[11px] uppercase text-faint">
-          Check back for the registration form and exact deadline.
+          Registration is hosted securely on Luma.
         </p>
       </div>
     </section>

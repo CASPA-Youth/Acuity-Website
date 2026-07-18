@@ -1,45 +1,19 @@
-import { useRef } from 'react'
-import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight, Compass } from 'lucide-react'
 import { event } from '../data/site'
 import AgentTrace from './AgentTrace'
 
 export default function Hero() {
   const reduce = useReducedMotion()
-  const ref = useRef<HTMLDivElement>(null)
-
-  // Cursor position drives the precision reticle (0–100% of the hero box).
-  const mx = useMotionValue(58)
-  const my = useMotionValue(42)
-  const sx = useSpring(mx, { stiffness: 120, damping: 24, mass: 0.4 })
-  const sy = useSpring(my, { stiffness: 120, damping: 24, mass: 0.4 })
-
-  const onMove = (e: React.MouseEvent) => {
-    if (reduce) return
-    const r = ref.current?.getBoundingClientRect()
-    if (!r) return
-    mx.set(((e.clientX - r.left) / r.width) * 100)
-    my.set(((e.clientY - r.top) / r.height) * 100)
-  }
 
   return (
-    <section
-      id="top"
-      ref={ref}
-      onMouseMove={onMove}
-      className="relative overflow-hidden pt-[72px]"
-    >
-      {/* precision field */}
-      <div aria-hidden className="reticle-grid pointer-events-none absolute inset-0 opacity-70" />
+    <section id="top" className="relative overflow-hidden pt-[72px]">
       <div
         aria-hidden
         className="pointer-events-none absolute -right-32 top-24 h-[520px] w-[520px] rotate-45 border border-indigo/20"
       />
 
-      {/* precision reticle — the signature element */}
-      <Reticle sx={sx} sy={sy} disabled={!!reduce} />
-
-      <div className="shell relative grid items-center gap-14 py-16 sm:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:py-28">
+      <div className="shell relative grid items-center gap-14 py-16 sm:py-20 lg:grid-cols-[0.95fr_1.05fr] lg:py-28">
         {/* left: editorial identity */}
         <div>
           <motion.div
@@ -92,6 +66,8 @@ export default function Hero() {
           >
             <a
               href={event.registrationLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 rounded-[10px] bg-indigo px-7 py-3.5 font-display font-semibold text-midnight shadow-[0_14px_36px_-12px_rgba(144,91,244,0.8)] transition-all hover:-translate-y-0.5 hover:bg-indigo-soft"
             >
               {event.ctaPrimary}
@@ -115,7 +91,7 @@ export default function Hero() {
           >
             {[
               { k: 'Date', v: event.dateShort },
-              { k: 'Location', v: event.location },
+              { k: 'Location', v: event.location, href: event.mapsLink },
               { k: 'Deadline', v: event.registrationDeadline },
             ].map((m) => (
               <div key={m.k} className="bg-midnight px-4 py-4 sm:px-5">
@@ -123,7 +99,18 @@ export default function Hero() {
                   {m.k}
                 </dt>
                 <dd className="mt-1.5 font-display text-sm font-semibold text-seashell sm:text-[15px]">
-                  {m.v}
+                  {m.href ? (
+                    <a
+                      href={m.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline decoration-indigo/50 underline-offset-4 transition-colors hover:text-indigo"
+                    >
+                      {m.v}
+                    </a>
+                  ) : (
+                    m.v
+                  )}
                 </dd>
               </div>
             ))}
@@ -137,13 +124,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.75, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="relative mx-auto max-w-md">
-            <img
-              src="/logo.png"
-              alt=""
-              aria-hidden
-              className="absolute -right-4 -top-16 h-28 w-auto opacity-90 drop-shadow-[0_12px_48px_rgba(144,91,244,0.55)] sm:-top-20 sm:h-32"
-            />
+          <div className="relative mx-auto w-full max-w-xl">
             <AgentTrace />
             <div className="mt-4 flex items-center justify-between font-mono text-[11px] uppercase text-faint">
               <span className="inline-flex items-center gap-2">
@@ -156,38 +137,6 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* bottom hairline into next section */}
-      <div aria-hidden className="section-line absolute inset-x-0 bottom-0" />
     </section>
-  )
-}
-
-function Reticle({
-  sx,
-  sy,
-  disabled,
-}: {
-  sx: ReturnType<typeof useSpring>
-  sy: ReturnType<typeof useSpring>
-  disabled: boolean
-}) {
-  const leftPct = useTransform(sx, (n) => `${n}%`)
-  const topPct = useTransform(sy, (n) => `${n}%`)
-  if (disabled) return null
-  return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 z-0 hidden md:block">
-      <motion.div
-        className="absolute inset-y-0 w-px bg-indigo/30"
-        style={{ left: leftPct }}
-      />
-      <motion.div
-        className="absolute inset-x-0 h-px bg-indigo/30"
-        style={{ top: topPct }}
-      />
-      <motion.div
-        className="absolute h-3 w-3 -translate-x-1/2 -translate-y-1/2 rotate-45 border border-indigo/70"
-        style={{ left: leftPct, top: topPct }}
-      />
-    </div>
   )
 }
