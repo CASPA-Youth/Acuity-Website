@@ -1,5 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
-import { motion, useMotionValue, useReducedMotion } from 'framer-motion'
+import {
+  motion,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+  useTransform,
+  useVelocity,
+} from 'framer-motion'
 
 type Shot = {
   id: number
@@ -7,15 +14,40 @@ type Shot = {
   y: number
 }
 
+const CURSOR_SIZE = 75
+
 export default function CursorReticle() {
   const reduce = useReducedMotion()
-  const x = useMotionValue(-100)
-  const y = useMotionValue(-100)
+  const pointerX = useMotionValue(-100)
+  const pointerY = useMotionValue(-100)
+  const x = useSpring(pointerX, { stiffness: 320, damping: 30, mass: 0.45 })
+  const y = useSpring(pointerY, { stiffness: 320, damping: 30, mass: 0.45 })
+  const horizontalVelocity = useVelocity(x)
+  const verticalVelocity = useVelocity(y)
+  const stretchXTarget = useTransform(
+    [horizontalVelocity, verticalVelocity],
+    ([velocityX, velocityY]) => {
+      const horizontalSpeed = Math.min(Math.abs(velocityX as number) / 1400, 1)
+      const verticalSpeed = Math.min(Math.abs(velocityY as number) / 1400, 1)
+      return 1 + horizontalSpeed * 0.16 - verticalSpeed * 0.08
+    },
+  )
+  const stretchYTarget = useTransform(
+    [horizontalVelocity, verticalVelocity],
+    ([velocityX, velocityY]) => {
+      const horizontalSpeed = Math.min(Math.abs(velocityX as number) / 1400, 1)
+      const verticalSpeed = Math.min(Math.abs(velocityY as number) / 1400, 1)
+      return 1 + verticalSpeed * 0.16 - horizontalSpeed * 0.08
+    },
+  )
+  const stretchY = useSpring(stretchYTarget, { stiffness: 260, damping: 24, mass: 0.35 })
+  const stretchX = useSpring(stretchXTarget, { stiffness: 260, damping: 24, mass: 0.35 })
   const [visible, setVisible] = useState(false)
   const [firing, setFiring] = useState(false)
   const [shots, setShots] = useState<Shot[]>([])
   const shotId = useRef(0)
   const recoilTimer = useRef<number>()
+  const hasPosition = useRef(false)
 
   useEffect(() => {
     if (reduce || !window.matchMedia('(pointer: fine)').matches) return
@@ -23,12 +55,27 @@ export default function CursorReticle() {
     document.documentElement.classList.add('has-custom-cursor')
 
     const move = (event: PointerEvent) => {
-      x.set(event.clientX)
-      y.set(event.clientY)
+      pointerX.set(event.clientX)
+      pointerY.set(event.clientY)
+
+      if (!hasPosition.current) {
+        x.jump(event.clientX)
+        y.jump(event.clientY)
+        hasPosition.current = true
+      }
+
       setVisible(true)
     }
-    const hide = () => setVisible(false)
+    const hide = () => {
+      hasPosition.current = false
+      setVisible(false)
+    }
     const fire = (event: PointerEvent) => {
+      pointerX.set(event.clientX)
+      pointerY.set(event.clientY)
+      x.jump(event.clientX)
+      y.jump(event.clientY)
+
       const id = shotId.current++
       setShots((current) => [...current, { id, x: event.clientX, y: event.clientY }])
       setFiring(true)
@@ -48,7 +95,7 @@ export default function CursorReticle() {
       window.clearTimeout(recoilTimer.current)
       document.documentElement.classList.remove('has-custom-cursor')
     }
-  }, [reduce, x, y])
+  }, [pointerX, pointerY, reduce, x, y])
 
   if (reduce) return null
 
@@ -56,7 +103,16 @@ export default function CursorReticle() {
     <div aria-hidden className="pointer-events-none fixed inset-0 z-[55] hidden md:block">
       <motion.div
         className="fixed"
-        style={{ left: x, top: y, width: 42, height: 42, marginLeft: -21, marginTop: -21 }}
+        style={{
+          left: x,
+          top: y,
+          scaleX: stretchX,
+          scaleY: stretchY,
+          width: CURSOR_SIZE,
+          height: CURSOR_SIZE,
+          marginLeft: -CURSOR_SIZE / 2,
+          marginTop: -CURSOR_SIZE / 2,
+        }}
         animate={{ opacity: visible ? 0.9 : 0 }}
         transition={{ duration: 0.1 }}
       >

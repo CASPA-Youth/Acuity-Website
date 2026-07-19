@@ -12,7 +12,7 @@ const reasons = [
 export default function Benefits() {
   return (
     <section id="why" className="section-line relative scroll-mt-24">
-      <div className="shell py-24 lg:py-36">
+      <div className="shell section-pad">
         <div className="grid border-y border-line lg:grid-cols-[0.85fr_1.15fr]">
           <Reveal className="flex flex-col justify-center bg-heart px-7 py-14 sm:px-10 lg:border-r lg:border-line lg:px-12 lg:py-20">
             <div className="kicker">03 / Why Participate</div>

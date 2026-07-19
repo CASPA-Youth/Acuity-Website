@@ -23,17 +23,17 @@ export default function ChallengeTracks() {
 
   return (
     <section id="challenges" className="section-line relative scroll-mt-24">
-      <div className="shell py-24 lg:py-36">
+      <div className="shell section-pad">
         <SectionHeader
           index="01"
           kicker="Possible Themes"
-          title={<>Five possibilities. One final reveal.</>}
-          intro="Prepare to think broadly. The final theme will be selected from this pool and revealed when the hackathon begins."
+          title={<>Five possibilities. Two final themes.</>}
+          intro="Prepare to think broadly. Two final themes will be selected from this pool and revealed when the hackathon begins."
           className="max-w-2xl"
         />
 
         <div
-          className="mt-16 overflow-hidden"
+          className="section-content-gap overflow-hidden"
           role="region"
           aria-roledescription="carousel"
           aria-label="Possible hackathon themes"
@@ -123,7 +123,7 @@ export default function ChallengeTracks() {
 
             <div className="flex items-center justify-between gap-4 sm:justify-end">
               <span className="font-mono text-[11px] uppercase text-faint">
-                {String(active + 1).padStart(2, '0')} / {String(tracks.length).padStart(2, '0')} · one revealed at kickoff
+                {String(active + 1).padStart(2, '0')} / {String(tracks.length).padStart(2, '0')} · two revealed at kickoff
               </span>
               <div className="flex gap-2">
                 <button

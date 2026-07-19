@@ -5,7 +5,7 @@ export default function Schedule() {
   let lastDay = ''
   return (
     <section id="schedule" className="section-line relative scroll-mt-24">
-      <div className="shell py-24 lg:py-36">
+      <div className="shell section-pad">
         <div className="mx-auto max-w-4xl">
           <SectionHeader
             index="05"
@@ -15,7 +15,7 @@ export default function Schedule() {
             className="mx-auto max-w-2xl text-center"
           />
 
-          <div className="relative mt-16">
+          <div className="section-content-gap relative">
             {/* spine */}
             <div aria-hidden className="absolute left-[7px] top-2 bottom-2 w-px bg-line sm:left-[calc(120px+7px)]" />
             <ol className="space-y-1">

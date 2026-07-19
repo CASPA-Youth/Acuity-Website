@@ -1,6 +1,7 @@
 import { useReducedMotion } from 'framer-motion'
 import { Reveal, SectionHeader } from './primitives'
 import { event } from '../data/site'
+import { foxVideoSettings } from '../data/videoSettings'
 
 const principles = [
   {
@@ -22,6 +23,7 @@ const principles = [
 
 export default function EventOverview() {
   const reduce = useReducedMotion()
+  const thinkingFox = foxVideoSettings.sitting
 
   return (
     <section
@@ -29,8 +31,8 @@ export default function EventOverview() {
       className="section-line relative scroll-mt-24"
       style={{ backgroundColor: '#170C37' }}
     >
-      <div className="shell py-24 lg:py-36">
-        <div className="relative lg:min-h-[720px]">
+      <div className="shell section-pad">
+        <div className="relative lg:min-h-[640px]">
           <div className="relative z-10 lg:w-[49%]">
             <SectionHeader
               index="00"
@@ -62,11 +64,20 @@ export default function EventOverview() {
           </div>
 
           <Reveal
-            className="pointer-events-none relative z-0 mt-10 h-[520px] sm:h-[720px] lg:absolute lg:inset-0 lg:mt-0 lg:h-full"
+            className="pointer-events-none relative z-0 mt-8 h-[380px] sm:h-[500px] lg:absolute lg:inset-0 lg:mt-0 lg:h-full"
           >
-            <div className="absolute inset-0">
+            <div
+              className="absolute inset-0"
+              style={{
+                transform: `translate(${thinkingFox.x}%, ${thinkingFox.y}%) scale(${thinkingFox.zoom})`,
+                transformOrigin: 'right bottom',
+              }}
+            >
               <video
-                className="absolute inset-y-0 right-0 h-full w-full origin-bottom-right translate-x-[225px] translate-y-[125px] scale-[1] object-contain object-right-bottom lg:w-[75%] lg:scale-[1.35]"
+                className="absolute inset-y-0 right-0 h-full w-full origin-bottom-right translate-x-[130px] translate-y-[70px] object-contain object-right-bottom sm:translate-x-[170px] sm:translate-y-[85px] lg:w-[75%] lg:translate-x-[180px] lg:translate-y-[90px] lg:scale-[1.3]"
+                style={{
+                  clipPath: `inset(${thinkingFox.crop.top}% ${thinkingFox.crop.right}% ${thinkingFox.crop.bottom}% ${thinkingFox.crop.left}%)`,
+                }}
                 autoPlay={!reduce}
                 loop={!reduce}
                 muted

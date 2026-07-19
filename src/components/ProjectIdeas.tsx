@@ -10,16 +10,16 @@ export default function ProjectIdeas() {
 
   return (
     <section id="ideas" className="section-line relative scroll-mt-24">
-      <div className="shell py-24 lg:py-36">
+      <div className="shell section-pad">
         <SectionHeader
           index="02"
           kicker="Project Formats"
           title={<>Build it your way.</>}
-          intro="The revealed theme sets the direction, but your project can take many forms. Choose a format to see one possible build path."
+          intro="The two revealed themes set the direction, but your project can take many forms. Choose a format to see one possible build path."
           className="mx-auto max-w-2xl text-center [&_.kicker]:justify-center"
         />
 
-        <ul className="mx-auto mt-14 grid max-w-4xl gap-3">
+        <ul className="section-content-gap mx-auto grid max-w-4xl gap-3">
           {ideas.map((idea, index) => {
             const isActive = active === index
             const buttonId = `format-button-${index}`

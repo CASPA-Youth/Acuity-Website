@@ -9,7 +9,7 @@ export default function Prizes() {
 
   return (
     <section id="prizes" className="section-line relative scroll-mt-24">
-      <div className="shell py-24 lg:py-36">
+      <div className="shell section-pad">
         <SectionHeader
           index="06"
           kicker="Prizes"
@@ -17,30 +17,44 @@ export default function Prizes() {
           className="max-w-xl"
         />
 
-        <div className="mt-14 grid gap-4 lg:grid-cols-[1.1fr_1.4fr]">
+        <div className="section-content-gap grid gap-4 lg:grid-cols-[1.1fr_1.4fr]">
           {/* grand prize */}
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 24 }}
             whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="clip-sharp relative flex flex-col justify-between overflow-hidden rounded-lg bg-indigo p-8 sm:p-10"
+            className="clip-sharp relative flex min-h-[330px] flex-col justify-between overflow-hidden rounded-lg bg-midnight p-8 sm:p-10"
           >
+            <div aria-hidden className="pointer-events-none absolute inset-0">
+              <video
+                className="h-full w-full object-cover"
+                autoPlay={!reduce}
+                loop={!reduce}
+                muted
+                playsInline
+                preload="metadata"
+                tabIndex={-1}
+              >
+                <source src="/money.mp4" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-t from-midnight/95 via-midnight/55 to-midnight/20" />
+            </div>
             <div
               aria-hidden
-              className="pointer-events-none absolute -right-10 -top-20 h-48 w-48 rotate-45 border border-midnight/20"
+              className="pointer-events-none absolute -right-10 -top-20 h-48 w-48 rotate-45 border border-seashell/20"
             />
             <div className="relative flex items-center gap-2">
-              <span className="diamond bg-midnight" />
-              <span className="font-mono text-[12px] uppercase text-midnight/80">
+              <span className="diamond" />
+              <span className="font-mono text-[12px] uppercase text-seashell/80">
                 {grand.title}
               </span>
             </div>
             <div className="relative mt-10">
-              <div className="break-words font-display text-5xl font-bold leading-none text-midnight sm:text-6xl">
+              <div className="break-words font-display text-5xl font-bold leading-none text-seashell sm:text-6xl">
                 {grand.amount}
               </div>
-              <p className="mt-4 max-w-xs font-body text-lg text-midnight/80">{grand.note}</p>
+              <p className="mt-4 max-w-xs font-body text-lg text-seashell/80">{grand.note}</p>
             </div>
           </motion.div>
 

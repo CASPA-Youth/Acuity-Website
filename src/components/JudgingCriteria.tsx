@@ -4,7 +4,7 @@ import { criteria } from '../data/content'
 export default function JudgingCriteria() {
   return (
     <section id="judging" className="section-line relative scroll-mt-24">
-      <div className="shell py-24 lg:py-36">
+      <div className="shell section-pad">
         <div className="grid gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
           <SectionHeader
             index="07"

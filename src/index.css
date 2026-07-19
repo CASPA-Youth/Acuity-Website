@@ -8,16 +8,11 @@
   }
 
   html {
-    scroll-behavior: smooth;
     /* fixed navbar offset for anchor jumps */
     scroll-padding-top: 88px;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
-
     *,
     *::before,
     *::after {
@@ -62,6 +57,17 @@
     max-width: 1240px;
     margin-inline: auto;
     padding-inline: clamp(20px, 5vw, 72px);
+  }
+
+  /* Shared vertical rhythm for full page sections. Keeping this in one place
+     prevents individual sections from drifting into uneven top/bottom space. */
+  .section-pad {
+    padding-top: clamp(2.75rem, 4vw, 3.5rem);
+    padding-bottom: clamp(5rem, 8vw, 7rem);
+  }
+
+  .section-content-gap {
+    margin-top: clamp(3rem, 5vw, 3.5rem);
   }
 
   /* Monad-inspired editorial rails: sections share a precise frame instead of

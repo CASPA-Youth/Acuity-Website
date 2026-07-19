@@ -11,7 +11,7 @@ export default function FinalCTA() {
         className="pointer-events-none absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rotate-45 border border-indigo/25"
       />
 
-      <div className="shell relative py-24 text-center lg:py-32">
+      <div className="shell section-pad relative text-center">
         <motion.img
           src="/logo.png"
           alt=""

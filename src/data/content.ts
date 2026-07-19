@@ -73,7 +73,7 @@ export const ideas: Idea[] = [
     title: 'Web application',
     meta: 'browser-based',
     description:
-      'Build a focused browser-based app that responds to the revealed theme and makes its core experience easy to demonstrate.',
+      'Build a focused browser-based app that responds to one or both revealed themes and makes its core experience easy to demonstrate.',
     trace: ['name one user', 'define one problem', 'build the core flow', 'demo the result'],
   },
   {
@@ -145,7 +145,7 @@ export const benefits: Benefit[] = [
 export const howItWorks = [
   { step: '1', title: 'Register', body: 'Submit one form per student at least one week before the event.' },
   { step: '2', title: 'Form a team', body: 'Build solo, team up with as many as three others, or join team matching.' },
-  { step: '3', title: 'Meet the theme', body: 'The final theme is revealed at kickoff from the five possibilities announced in advance.' },
+  { step: '3', title: 'Meet the themes', body: 'Two final themes are revealed at kickoff from the five possibilities announced in advance.' },
   { step: '4', title: 'Build', body: 'Create an original project with a focused user, a thoughtful solution, and a working demo.' },
   { step: '5', title: 'Attribute', body: 'Credit every third-party library, asset, model, and source you use.' },
   { step: '6', title: 'Submit', body: 'Turn in your project and a demo that works for both online and in-person judging.' },
@@ -165,7 +165,7 @@ export const schedule: ScheduleItem[] = [
   { day: 'Day 1 · Aug 6', time: '9:30–10:00 AM', title: 'Welcome & CASPA introduction', detail: 'Meet the organizers and get an overview of the hackathon.' },
   { day: 'Day 1 · Aug 6', time: '10:00–10:15 AM', title: 'Sponsor recognition', detail: 'Meet the organizations helping make Acuity Hacks possible.' },
   { day: 'Day 1 · Aug 6', time: '10:15–10:30 AM', title: 'Rules & expectations', detail: 'Review team size, AI use, originality, attribution, conduct, and hybrid participation.' },
-  { day: 'Day 1 · Aug 6', time: '10:30–10:45 AM', title: 'Theme reveal & kickoff', detail: 'Discover the final theme and review the requirements and judging expectations before building begins.', highlight: true },
+  { day: 'Day 1 · Aug 6', time: '10:30–10:45 AM', title: 'Theme reveal & kickoff', detail: 'Discover the two final themes and review the requirements and judging expectations before building begins.', highlight: true },
   { day: 'Day 1 · Aug 6', time: '10:45–11:30 AM', title: 'Team formation & brainstorming', detail: 'Find teammates, confirm teams of up to four, and shape the first idea.' },
   { day: 'Day 1 · Aug 6', time: '11:30 AM–9:00 PM', title: 'Open hacking block', detail: 'Build throughout the day with online and in-person support available.' },
   { day: 'Day 1 · Aug 6', time: '12:00–1:00 PM', title: 'Lunch available', detail: 'Grab-and-go lunch is available during the hacking block.' },
@@ -244,8 +244,8 @@ export const faqs: Faq[] = [
   { q: 'Who can participate?', a: 'Acuity Hackathon is open to middle and high school students. Students at every experience level are welcome.' },
   { q: 'Do I need a team?', a: 'No. Build solo, register with teammates, or use team matching at the event. Teams may have up to four members.' },
   { q: 'Is the event in person or online?', a: 'Both. Join at 2933 Bunker Hill Ln in Santa Clara or participate online. Presentation details will keep both groups on the same event timeline.' },
-  { q: 'What are the possible themes?', a: 'The five possibilities are Sustainability & Social Good, Machine Learning, Productivity, Education, and Medicine / Global Health / Mental Health. The final theme will be revealed when the hackathon begins.' },
-  { q: 'What can I build?', a: 'Build a web, mobile, communication, productivity, recommendation, or other application that responds to the revealed theme. Keep the audience and problem specific.' },
+  { q: 'What are the possible themes?', a: 'The five possibilities are Sustainability & Social Good, Machine Learning, Productivity, Education, and Medicine / Global Health / Mental Health. Two final themes will be revealed when the hackathon begins.' },
+  { q: 'What can I build?', a: 'Build a web, mobile, communication, productivity, recommendation, or other application that responds to one or both revealed themes. Keep the audience and problem specific.' },
   { q: 'Can I use AI?', a: 'Yes, but AI should support your work—not produce the entire project for you. Judges will look for your team’s own thinking, technical decisions, and execution.' },
   { q: 'Can I use existing code or third-party tools?', a: 'Do not bring a premade project. Your submission should be mostly original work created for the hackathon, and every library, asset, model, source, or other third-party contribution must be credited.' },
   { q: 'How are projects judged?', a: 'A professional panel reviews creativity, impact, complexity, execution and functionality, and the presentation or demo. Final scoring details will be shared with participants.' },

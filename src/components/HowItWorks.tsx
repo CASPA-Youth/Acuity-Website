@@ -4,7 +4,7 @@ import { howItWorks } from '../data/content'
 export default function HowItWorks() {
   return (
     <section id="how" className="section-line relative scroll-mt-24">
-      <div className="shell py-24 lg:py-36">
+      <div className="shell section-pad">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeader
             index="03"
@@ -18,7 +18,7 @@ export default function HowItWorks() {
         </div>
 
         <div
-          className="timeline-scroll -mr-[clamp(20px,5vw,72px)] mt-16 overflow-x-auto overscroll-x-contain pb-7"
+          className="timeline-scroll section-content-gap -mr-[clamp(20px,5vw,72px)] overflow-x-auto overscroll-x-contain pb-7"
           role="region"
           aria-label="Hackathon process timeline"
           tabIndex={0}

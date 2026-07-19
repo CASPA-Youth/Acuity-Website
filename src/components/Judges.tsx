@@ -13,7 +13,7 @@ export default function Judges() {
   const reduce = useReducedMotion()
   return (
     <section id="judges" className="section-line relative scroll-mt-24">
-      <div className="shell py-24 lg:py-36">
+      <div className="shell section-pad">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <SectionHeader
             index="08"
@@ -31,7 +31,7 @@ export default function Judges() {
           initial={reduce ? undefined : 'hidden'}
           whileInView={reduce ? undefined : 'show'}
           viewport={{ once: true, margin: '-60px' }}
-          className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+          className="section-content-gap grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
         >
           {judges.length === 0 && (
             <motion.li

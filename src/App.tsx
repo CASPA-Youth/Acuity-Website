@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
+import Lenis from 'lenis'
 import { useCallback, useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -37,6 +38,25 @@ export default function App() {
       // The site still works if storage is unavailable.
     }
     setIsLoading(false)
+  }, [])
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    const lenis = new Lenis()
+    let animationFrame = 0
+
+    const raf = (time: number) => {
+      lenis.raf(time)
+      animationFrame = window.requestAnimationFrame(raf)
+    }
+
+    animationFrame = window.requestAnimationFrame(raf)
+
+    return () => {
+      window.cancelAnimationFrame(animationFrame)
+      lenis.destroy()
+    }
   }, [])
 
   useEffect(() => {

@@ -4,7 +4,7 @@ import { event } from '../data/site'
 export default function Sponsors() {
   return (
     <section id="sponsors" className="section-line relative scroll-mt-24">
-      <div className="shell py-24 lg:py-36">
+      <div className="shell section-pad">
         <SectionHeader
           index="07"
           kicker="Sponsors & Partners"
@@ -13,7 +13,7 @@ export default function Sponsors() {
           className="max-w-2xl"
         />
 
-        <Reveal className="clip-sharp mt-14 flex flex-col items-start justify-between gap-8 border border-indigo/25 bg-heart/25 p-8 sm:flex-row sm:items-center sm:p-10">
+        <Reveal className="clip-sharp section-content-gap flex flex-col items-start justify-between gap-8 border border-indigo/25 bg-heart/25 p-8 sm:flex-row sm:items-center sm:p-10">
           <div>
             <div className="kicker">Partnerships are open</div>
             <p className="mt-4 max-w-2xl font-body text-lg leading-relaxed text-muted">
