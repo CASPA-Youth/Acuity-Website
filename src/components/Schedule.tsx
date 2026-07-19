@@ -2,11 +2,17 @@ import { SectionHeader, Reveal } from './primitives'
 import { schedule } from '../data/content'
 
 export default function Schedule() {
-  let lastDay = ''
+  const days = schedule.reduce<Record<string, typeof schedule>>((groups, item) => {
+    const dayItems = groups[item.day] ?? []
+    dayItems.push(item)
+    groups[item.day] = dayItems
+    return groups
+  }, {})
+
   return (
     <section id="schedule" className="section-line relative scroll-mt-24">
       <div className="shell section-pad">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-6xl">
           <SectionHeader
             index="05"
             kicker="Schedule"
@@ -15,58 +21,63 @@ export default function Schedule() {
             className="mx-auto max-w-2xl text-center"
           />
 
-          <div className="section-content-gap relative">
-            {/* spine */}
-            <div aria-hidden className="absolute left-[7px] top-2 bottom-2 w-px bg-line sm:left-[calc(120px+7px)]" />
-            <ol className="space-y-1">
-              {schedule.map((item, i) => {
-                const newDay = item.day !== lastDay
-                lastDay = item.day
-                return (
-                  <Reveal as="li" key={i} delay={Math.min(i * 0.03, 0.3)}>
-                    {newDay && (
-                      <div className="mb-2 mt-6 flex items-center gap-3 first:mt-0 sm:pl-[120px]">
-                        <span className="font-mono text-[12px] uppercase text-indigo">
-                          {item.day}
-                        </span>
-                        <span className="h-px flex-1 bg-line" />
-                      </div>
-                    )}
-                    <div className="group grid grid-cols-[auto_1fr] gap-4 sm:grid-cols-[120px_auto_1fr] sm:items-baseline">
-                      <div className="hidden pt-3 text-right font-mono text-[12px] text-faint sm:block">
-                        {item.time}
-                      </div>
-                      <div className="relative flex justify-center pt-[14px]">
-                        <span
-                          className={`relative z-10 h-3.5 w-3.5 rotate-45 border ${
-                            item.highlight
-                              ? 'border-indigo bg-indigo'
-                              : 'border-indigo/60 bg-midnight'
-                          }`}
-                        />
-                      </div>
-                      <div
-                        className={`rounded-lg border px-5 py-3 transition-colors sm:my-1 ${
-                          item.highlight
-                            ? 'border-indigo/50 bg-heart/45'
-                            : 'border-transparent group-hover:border-line group-hover:bg-heart/20'
-                        }`}
-                      >
-                        <div className="flex flex-wrap items-baseline gap-x-3">
-                          <h3 className="font-display font-semibold text-seashell">
-                            {item.title}
-                          </h3>
-                          <span className="font-mono text-[11px] text-faint sm:hidden">
-                            {item.time}
-                          </span>
-                        </div>
-                        <p className="mt-0.5 font-body text-sm text-muted">{item.detail}</p>
-                      </div>
+          <div className="section-content-gap grid gap-14 lg:grid-cols-2 lg:gap-12">
+            {Object.entries(days).map(([day, items], dayIndex) => {
+              const [dayLabel, date] = day.split(' · ')
+
+              return (
+                <Reveal as="section" key={day} delay={dayIndex * 0.08}>
+                  <header className="flex items-end justify-between gap-6 border-b-2 border-indigo pb-4">
+                    <div>
+                      <span className="font-mono text-[11px] uppercase text-indigo">
+                        Agenda 0{dayIndex + 1}
+                      </span>
+                      <h3 className="mt-1 font-display text-3xl font-semibold text-seashell">
+                        {dayLabel}
+                      </h3>
                     </div>
-                  </Reveal>
-                )
-              })}
-            </ol>
+                    <span className="pb-1 font-mono text-sm uppercase text-muted">{date}</span>
+                  </header>
+
+                  <ol className="divide-y divide-seashell/20 border-b border-seashell/20">
+                    {items.map((item) => (
+                      <li
+                        key={`${item.time}-${item.title}`}
+                        className="group grid gap-2 py-5 sm:grid-cols-[140px_1fr] sm:gap-5"
+                      >
+                        <time
+                          className={`font-mono text-[11px] leading-6 ${
+                            item.highlight ? 'text-indigo' : 'text-faint'
+                          }`}
+                        >
+                          {item.time}
+                        </time>
+                        <div>
+                          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                            <h4
+                              className={`font-display font-semibold ${
+                                item.highlight ? 'text-indigo-soft' : 'text-seashell'
+                              }`}
+                            >
+                              {item.title}
+                            </h4>
+                            {item.highlight && (
+                              <span className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-wide text-indigo">
+                                <span className="h-1.5 w-1.5 rotate-45 bg-indigo" />
+                                Milestone
+                              </span>
+                            )}
+                          </div>
+                          <p className="mt-1 font-body text-sm leading-relaxed text-muted">
+                            {item.detail}
+                          </p>
+                        </div>
+                      </li>
+                    ))}
+                  </ol>
+                </Reveal>
+              )
+            })}
           </div>
         </div>
       </div>
