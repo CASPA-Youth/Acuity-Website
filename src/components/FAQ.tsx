@@ -12,13 +12,14 @@ export default function FAQ() {
   return (
     <section id="faq" className="section-line relative scroll-mt-24">
       <div className="shell py-24 lg:py-36">
-        <div className="grid gap-14 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
-          <div>
+        <div className="mx-auto max-w-4xl">
+          <div className="text-center">
             <SectionHeader
               index="08"
               kicker="FAQ"
               title={<>Questions, answered.</>}
               intro="Still stuck? We’re one email away."
+              className="mx-auto max-w-2xl"
             />
             <a
               href={event.contactLink}
@@ -29,7 +30,7 @@ export default function FAQ() {
             </a>
           </div>
 
-          <ul className="divide-y divide-line rounded-lg border border-indigo/20 bg-heart/25">
+          <ul className="mt-14 divide-y divide-line rounded-lg border border-indigo/20 bg-heart/25">
             {faqs.map((f, i) => {
               const isOpen = open === i
               const panelId = `faq-panel-${i}`

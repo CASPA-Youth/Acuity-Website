@@ -1,5 +1,4 @@
 import { Reveal, SectionHeader } from './primitives'
-import { sponsorTiers } from '../data/content'
 import { event } from '../data/site'
 
 export default function Sponsors() {
@@ -14,51 +13,16 @@ export default function Sponsors() {
           className="max-w-2xl"
         />
 
-        <div className="mt-14 space-y-4">
-          {sponsorTiers.map((tier, ti) => (
-            <Reveal key={tier.tier} delay={ti * 0.05}>
-              <div className="rounded-lg border border-line bg-heart/20 p-7 sm:p-10">
-                <div className="flex items-center gap-3">
-                  <span className="diamond" />
-                  <h3 className="font-mono text-[12px] uppercase text-indigo">
-                    {tier.tier}
-                  </h3>
-                  {tier.note && (
-                    <span className="font-mono text-[11px] text-faint">— {tier.note}</span>
-                  )}
-                </div>
-                <div
-                  className={`mt-6 grid gap-3 ${
-                    ti === 0
-                      ? 'grid-cols-1'
-                      : ti === 1
-                        ? 'grid-cols-1 sm:grid-cols-3'
-                        : 'grid-cols-2 sm:grid-cols-4 lg:grid-cols-5'
-                  }`}
-                >
-                  {tier.logos.map((logo, i) => (
-                    <div
-                      key={i}
-                      className={`flex items-center justify-center rounded-lg border border-dashed border-line bg-midnight/60 font-display font-semibold text-faint transition-colors hover:border-indigo/50 hover:text-muted ${
-                        ti === 0 ? 'h-28 text-2xl' : ti === 1 ? 'h-24 text-xl' : 'h-16 text-sm'
-                      }`}
-                    >
-                      {logo}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
-        <Reveal className="mt-10 flex flex-wrap items-center justify-between gap-5 rounded-lg border border-indigo/25 bg-heart/30 px-7 py-6">
-          <p className="font-body text-muted">Want your logo here?</p>
-          <a
-            href={event.contactLink}
-            className="font-mono text-[13px] uppercase text-indigo hover:text-indigo-soft"
-          >
-            {event.contactEmail} →
+        <Reveal className="clip-sharp mt-14 flex flex-col items-start justify-between gap-8 border border-indigo/25 bg-heart/25 p-8 sm:flex-row sm:items-center sm:p-10">
+          <div>
+            <div className="kicker">Partnerships are open</div>
+            <p className="mt-4 max-w-2xl font-body text-lg leading-relaxed text-muted">
+              Support can include funding, prizes, food, tools, participant resources, or in-kind contributions.
+              Confirmed partner logos will appear here.
+            </p>
+          </div>
+          <a href={event.contactLink} className="flex-shrink-0 font-mono text-[13px] uppercase text-indigo hover:text-indigo-soft">
+            Get in touch →
           </a>
         </Reveal>
       </div>

@@ -104,6 +104,23 @@
     flex-shrink: 0;
   }
 
+  .timeline-scroll {
+    scrollbar-color: #905bf4 rgba(239, 239, 239, 0.1);
+    scrollbar-width: thin;
+  }
+
+  .timeline-scroll::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .timeline-scroll::-webkit-scrollbar-track {
+    background: rgba(239, 239, 239, 0.1);
+  }
+
+  .timeline-scroll::-webkit-scrollbar-thumb {
+    background: #905bf4;
+  }
+
   .loading-screen::after {
     content: '';
     position: absolute;

@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
+import { ChevronDown } from 'lucide-react'
 import { SectionHeader } from './primitives'
 import { ideas } from '../data/content'
 
 export default function ProjectIdeas() {
-  const [active, setActive] = useState(0)
+  const [active, setActive] = useState<number | null>(null)
   const reduce = useReducedMotion()
-  const current = ideas[active]
 
   return (
     <section id="ideas" className="section-line relative scroll-mt-24">
@@ -15,101 +15,101 @@ export default function ProjectIdeas() {
           index="02"
           kicker="Project Formats"
           title={<>Build it your way.</>}
-          intro="The themes set the problems, not the medium. These are starting points—not requirements—for shaping an idea into something the judges can experience."
-          className="max-w-2xl"
+          intro="The revealed theme sets the direction, but your project can take many forms. Choose a format to see one possible build path."
+          className="mx-auto max-w-2xl text-center [&_.kicker]:justify-center"
         />
 
-        <div className="mt-14 grid gap-4 lg:grid-cols-[1.1fr_1fr] lg:gap-6">
-          {/* selectable list */}
-          <ul className="grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
-            {ideas.map((idea, i) => {
-              const isActive = i === active
-              return (
-                <li key={idea.title}>
+        <ul className="mx-auto mt-14 grid max-w-4xl gap-3">
+          {ideas.map((idea, index) => {
+            const isActive = active === index
+            const buttonId = `format-button-${index}`
+            const panelId = `format-panel-${index}`
+
+            return (
+              <li
+                key={idea.title}
+                className={`overflow-hidden border transition-colors duration-300 ${
+                  isActive
+                    ? 'border-indigo/60 bg-heart/25'
+                    : 'border-line bg-heart/15 hover:border-indigo/40'
+                }`}
+              >
+                <h3>
                   <button
+                    id={buttonId}
                     type="button"
-                    onClick={() => setActive(i)}
-                    onMouseEnter={() => !reduce && setActive(i)}
-                    aria-pressed={isActive}
-                    className={`group flex w-full items-center justify-between gap-4 rounded-lg border px-5 py-4 text-left transition-all duration-200 ${
-                      isActive
-                        ? 'border-indigo/70 bg-heart'
-                        : 'border-line bg-heart/15 hover:border-indigo/40 hover:bg-heart/30'
-                    }`}
+                    onClick={() => setActive(isActive ? null : index)}
+                    aria-expanded={isActive}
+                    aria-controls={panelId}
+                    className="group flex w-full items-center gap-4 px-5 py-5 text-left transition-colors hover:bg-heart/20 sm:gap-6 sm:px-7 sm:py-6"
                   >
-                    <span className="flex items-center gap-3">
-                      <span
-                        className={`diamond transition-transform duration-300 ${
-                          isActive ? 'scale-125' : 'opacity-50'
-                        }`}
-                      />
-                      <span className="font-display text-lg font-semibold">
-                        {idea.title}
-                      </span>
+                    <span className="font-mono text-[11px] text-indigo">
+                      {String(index + 1).padStart(2, '0')}
                     </span>
-                    <span className="font-mono text-[11px] uppercase text-faint">
+                    <span className="min-w-0 flex-1 font-display text-lg font-semibold text-seashell sm:text-xl">
+                      {idea.title}
+                    </span>
+                    <span className="hidden font-mono text-[10px] uppercase tracking-[0.14em] text-faint sm:block">
                       {idea.meta}
                     </span>
+                    <span className="grid h-9 w-9 shrink-0 place-items-center border border-line text-indigo transition-colors group-hover:border-indigo/50">
+                      <ChevronDown
+                        size={17}
+                        aria-hidden="true"
+                        className={`transition-transform duration-300 ${isActive ? 'rotate-180' : ''}`}
+                      />
+                    </span>
                   </button>
-                </li>
-              )
-            })}
-          </ul>
+                </h3>
 
-          {/* detail panel */}
-          <div className="relative min-h-[320px] bg-midnight lg:sticky lg:top-24">
-            <div className="relative aspect-video overflow-hidden">
-              <video
-                className="absolute left-1/2 top-1/2 h-auto w-[115%] max-w-none -translate-x-1/2 -translate-y-1/2 object-cover"
-                autoPlay={!reduce}
-                loop={!reduce}
-                muted
-                playsInline
-                preload="metadata"
-                aria-hidden="true"
-                tabIndex={-1}
-              >
-                <source src="/sitting-fox-v3.mp4" type="video/mp4" />
-              </video>
-            </div>
-
-            <div className="p-8 sm:p-10">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={current.title}
-                  initial={reduce ? false : { opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={reduce ? { opacity: 0 } : { opacity: 0, y: -8 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <div className="kicker">{current.meta}</div>
-                  <h3 className="mt-4 font-display text-2xl font-semibold sm:text-3xl">
-                    {current.title}
-                  </h3>
-                  <p className="mt-3 font-body leading-relaxed text-muted text-pretty">
-                    {current.description}
-                  </p>
-
-                  <div className="mt-7 rounded-lg border border-line bg-midnight/60 p-4 font-mono text-[12.5px]">
-                    <div className="mb-3 text-[11px] uppercase text-faint">
-                      a focused build path
-                    </div>
-                    <div className="space-y-1.5">
-                      {current.trace.map((step, i) => (
-                        <div key={i} className="flex items-center gap-2">
-                          <span className="text-indigo">{i === current.trace.length - 1 ? '✓' : '↳'}</span>
-                          <span className={i === current.trace.length - 1 ? 'text-indigo' : 'text-muted'}>
-                            {step}
-                          </span>
+                <AnimatePresence initial={false}>
+                  {isActive && (
+                    <motion.div
+                      id={panelId}
+                      role="region"
+                      aria-labelledby={buttonId}
+                      initial={reduce ? false : { height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={reduce ? { opacity: 0 } : { height: 0, opacity: 0 }}
+                      transition={{ duration: reduce ? 0 : 0.32, ease: [0.22, 1, 0.36, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="border-t border-indigo/35 bg-midnight/45 px-5 py-6 sm:grid sm:grid-cols-[1.15fr_1fr] sm:gap-10 sm:px-7 sm:py-8">
+                        <div>
+                          <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-indigo sm:hidden">
+                            {idea.meta}
+                          </div>
+                          <p className="mt-3 max-w-xl font-body leading-relaxed text-muted text-pretty sm:mt-0 sm:text-lg">
+                            {idea.description}
+                          </p>
                         </div>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
-        </div>
+
+                        <div className="mt-7 border-t border-line pt-5 sm:mt-0 sm:border-l sm:border-t-0 sm:pl-8 sm:pt-0">
+                          <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.14em] text-faint">
+                            A focused build path
+                          </div>
+                          <ol>
+                            {idea.trace.map((step, stepIndex) => (
+                              <li
+                                key={step}
+                                className="flex items-center gap-3 border-t border-line/60 py-2.5 first:border-t-0"
+                              >
+                                <span className="font-mono text-[10px] text-indigo">
+                                  {String(stepIndex + 1).padStart(2, '0')}
+                                </span>
+                                <span className="font-body text-sm text-muted">{step}</span>
+                              </li>
+                            ))}
+                          </ol>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </li>
+            )
+          })}
+        </ul>
       </div>
     </section>
   )

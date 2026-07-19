@@ -14,16 +14,7 @@ export default function Footer() {
               </span>
             </a>
             <p className="mt-5 max-w-xs font-body text-sm leading-relaxed text-muted text-pretty">
-              A two-day, student-run hackathon by {event.organizer}. {event.date} ·{' '}
-              <a
-                href={event.mapsLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-indigo/50 underline-offset-4 hover:text-indigo"
-              >
-                {event.location}
-              </a>
-              .
+              A student-run hackathon organized by {event.organizer}.
             </p>
             <div id="social-links" className="mt-6 flex items-center gap-3" aria-label="Social links pending">
               {[
@@ -65,11 +56,6 @@ export default function Footer() {
               Get involved
             </h2>
             <ul className="mt-5 space-y-3 font-body text-sm">
-              <li>
-                <a href={event.registrationLink} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-muted transition-colors hover:text-seashell">
-                  {event.ctaPrimary}
-                </a>
-              </li>
               <li>
                 <a href="/prizes#sponsors" className="inline-flex min-h-11 items-center text-muted transition-colors hover:text-seashell">
                   Become a sponsor

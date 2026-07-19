@@ -6,15 +6,16 @@ export default function Schedule() {
   return (
     <section id="schedule" className="section-line relative scroll-mt-24">
       <div className="shell py-24 lg:py-36">
-        <div className="grid gap-14 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
+        <div className="mx-auto max-w-4xl">
           <SectionHeader
             index="05"
             kicker="Schedule"
             title={<>The full two-day run of show.</>}
             intro="Both in-person and online participants follow the same event timeline. Access links and final participant instructions will be shared before kickoff."
+            className="mx-auto max-w-2xl text-center"
           />
 
-          <div className="relative">
+          <div className="relative mt-16">
             {/* spine */}
             <div aria-hidden className="absolute left-[7px] top-2 bottom-2 w-px bg-line sm:left-[calc(120px+7px)]" />
             <ol className="space-y-1">

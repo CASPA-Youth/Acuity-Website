@@ -10,18 +10,12 @@ export default function Prizes() {
   return (
     <section id="prizes" className="section-line relative scroll-mt-24">
       <div className="shell py-24 lg:py-36">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <SectionHeader
-            index="06"
-            kicker="Prizes"
-            title={<>Awards for work that stands out.</>}
-            className="max-w-xl"
-          />
-          <p className="max-w-xs font-body text-muted text-pretty">
-            Main category and special awards are planned. Exact prizes and eligibility details will
-            be announced before the event.
-          </p>
-        </div>
+        <SectionHeader
+          index="06"
+          kicker="Prizes"
+          title={<>Awards for work that stands out.</>}
+          className="max-w-xl"
+        />
 
         <div className="mt-14 grid gap-4 lg:grid-cols-[1.1fr_1.4fr]">
           {/* grand prize */}
@@ -50,34 +44,18 @@ export default function Prizes() {
             </div>
           </motion.div>
 
-          {/* category prizes */}
-          <motion.ul
-            variants={stagger}
-            initial={reduce ? undefined : 'hidden'}
-            whileInView={reduce ? undefined : 'show'}
-            viewport={{ once: true, margin: '-60px' }}
-            className="grid gap-3 sm:grid-cols-2"
-          >
+          <motion.ul variants={stagger} initial={reduce ? undefined : 'hidden'} whileInView={reduce ? undefined : 'show'} viewport={{ once: true, margin: '-60px' }} className="border-t border-line">
             {rest.map((p) => (
               <motion.li
                 key={p.title}
                 variants={staggerItem}
-                className={`group rounded-lg border border-line bg-heart/20 p-7 transition-all hover:border-indigo/50 hover:bg-heart/40 ${
-                  p.size === 'major' ? 'sm:col-span-1' : ''
-                }`}
+                className="group flex items-start gap-5 border-b border-line px-2 py-5 transition-colors hover:bg-heart/20 sm:px-5"
               >
-                <div className="flex items-baseline justify-between gap-3">
-                  <h3 className="font-display text-lg font-semibold text-seashell">
-                    {p.title}
-                  </h3>
-                  {p.size === 'major' && (
-                    <span className="rounded-full border border-indigo/50 px-2.5 py-0.5 font-mono text-[10px] uppercase text-indigo">
-                      Major
-                    </span>
-                  )}
+                <span className="diamond mt-1.5 opacity-60" />
+                <div>
+                  <h3 className="font-display text-lg font-semibold text-seashell">{p.title}</h3>
+                  <p className="mt-1.5 font-body text-sm text-muted">{p.note}</p>
                 </div>
-                <div className="mt-3 font-display text-2xl font-bold text-indigo">{p.amount}</div>
-                <p className="mt-1.5 font-body text-sm text-muted">{p.note}</p>
               </motion.li>
             ))}
           </motion.ul>

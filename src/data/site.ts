@@ -2,13 +2,13 @@
 // Confirmed details come from the Acuity Hacks style guide and planning notes.
 
 export const event = {
-  name: 'Acuity Hacks',
-  organizer: 'CASPA Youth',
+  name: 'Acuity Hackathon',
+  organizer: 'CASPA Youth Club',
   tagline: 'Build sharp.',
   subtagline: 'A two-day build sprint for sharp ideas.',
   description:
-    'Join online or in Santa Clara, meet your team, and build an original project around two themes revealed when the hackathon begins.',
-  theme: 'Two revealed at kickoff',
+    'Join online or in Santa Clara, meet your team, and build around the theme revealed at kickoff.',
+  theme: '5 possible themes · 1 revealed at kickoff',
   date: 'August 6–7, 2026',
   dateShort: 'Aug 6–7 · 2026',
   location: 'Santa Clara, CA / Online',

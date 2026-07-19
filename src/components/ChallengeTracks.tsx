@@ -27,67 +27,57 @@ export default function ChallengeTracks() {
         <SectionHeader
           index="01"
           kicker="Possible Themes"
-          title={<>Two themes. Revealed at kickoff.</>}
-          intro="We’ll share hints as the event gets closer. Two final challenges will be selected from this pool, and every team will discover them together when building begins."
+          title={<>Five possibilities. One final reveal.</>}
+          intro="Prepare to think broadly. The final theme will be selected from this pool and revealed when the hackathon begins."
           className="max-w-2xl"
         />
 
         <div
-          className="mt-16 overflow-hidden rounded-lg border border-indigo/25 bg-heart/25"
+          className="mt-16 overflow-hidden"
           role="region"
           aria-roledescription="carousel"
           aria-label="Possible hackathon themes"
         >
-          <div className="relative min-h-[390px] overflow-hidden p-7 sm:p-10 lg:min-h-[430px] lg:p-14">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute right-4 top-0 font-display text-[12rem] font-bold leading-none text-indigo/[0.055] sm:right-10 sm:text-[18rem]"
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.article
+              key={current.id}
+              custom={direction}
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`${active + 1} of ${tracks.length}: ${current.title}`}
+              initial={reduce ? false : { opacity: 0, x: direction * 56 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={reduce ? { opacity: 0 } : { opacity: 0, x: direction * -56 }}
+              transition={{ duration: reduce ? 0 : 0.35, ease: [0.22, 1, 0.36, 1] }}
+              drag={reduce ? false : 'x'}
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.15}
+              onDragEnd={(_, info) => {
+                if (info.offset.x < -55) go(1)
+                if (info.offset.x > 55) go(-1)
+              }}
+              className="clip-sharp relative min-h-[460px] cursor-grab overflow-hidden border border-indigo/25 bg-heart/25 p-8 active:cursor-grabbing sm:p-12 lg:min-h-[500px] lg:p-16"
             >
-              {current.index}
-            </div>
-
-            <AnimatePresence mode="wait" custom={direction}>
-              <motion.article
-                key={current.id}
-                custom={direction}
-                role="group"
-                aria-roledescription="slide"
-                aria-label={`${active + 1} of ${tracks.length}: ${current.title}`}
-                initial={reduce ? false : { opacity: 0, x: direction * 56 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={reduce ? { opacity: 0 } : { opacity: 0, x: direction * -56 }}
-                transition={{ duration: reduce ? 0 : 0.35, ease: [0.22, 1, 0.36, 1] }}
-                drag={reduce ? false : 'x'}
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.15}
-                onDragEnd={(_, info) => {
-                  if (info.offset.x < -55) go(1)
-                  if (info.offset.x > 55) go(-1)
-                }}
-                className="relative z-10 flex min-h-[310px] cursor-grab flex-col justify-between active:cursor-grabbing lg:min-h-[320px]"
+              <div
+                aria-hidden
+                className="pointer-events-none absolute right-4 top-0 font-display text-[13rem] font-bold leading-none text-indigo/[0.055] sm:right-10 sm:text-[20rem]"
               >
-                <div className="flex items-center justify-between gap-4">
-                  <span className="font-mono text-[13px] text-indigo">{current.index}</span>
-                  <span className="font-mono text-[11px] uppercase text-faint">
-                    Possible theme
-                  </span>
-                </div>
+                {current.index}
+              </div>
 
-                <div className="max-w-3xl py-10">
-                  <span className="inline-flex rounded-full border border-indigo/50 px-3 py-1 font-mono text-[11px] uppercase text-muted">
-                    {current.tag}
-                  </span>
-                  <h3 className="mt-5 font-display text-4xl font-semibold leading-tight text-seashell text-balance sm:text-5xl lg:text-6xl">
-                    {current.title}
-                  </h3>
-                  <p className="mt-5 max-w-2xl font-body text-lg leading-relaxed text-muted text-pretty">
-                    {current.description}
-                  </p>
-                </div>
-
+              <div className="relative max-w-4xl">
+                <span className="inline-flex rounded-full border border-indigo/50 px-3 py-1 font-mono text-[11px] uppercase text-muted">
+                  {current.tag}
+                </span>
+                <h1 className="mt-6 font-display text-4xl font-semibold leading-[1.02] text-seashell text-balance sm:text-6xl lg:text-7xl">
+                  {current.title}
+                </h1>
+                <p className="mt-7 max-w-2xl font-body text-lg leading-relaxed text-muted text-pretty">
+                  {current.description}
+                </p>
                 <a
-                  href="/themes#ideas"
-                  className="group inline-flex w-fit items-center gap-2 font-mono text-[12px] uppercase text-indigo transition-colors hover:text-indigo-soft"
+                  href="#ideas"
+                  className="group mt-10 inline-flex w-fit items-center gap-2 font-mono text-[12px] uppercase text-indigo transition-colors hover:text-indigo-soft"
                 >
                   Explore project formats
                   <ArrowUpRight
@@ -95,11 +85,11 @@ export default function ChallengeTracks() {
                     className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                   />
                 </a>
-              </motion.article>
-            </AnimatePresence>
-          </div>
+              </div>
+            </motion.article>
+          </AnimatePresence>
 
-          <div className="flex flex-col gap-5 border-t border-line px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+          <div className="mt-6 flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-2" aria-label="Choose a theme slide">
               {tracks.map((track, index) => (
                 <button
@@ -117,7 +107,7 @@ export default function ChallengeTracks() {
 
             <div className="flex items-center justify-between gap-4 sm:justify-end">
               <span className="font-mono text-[11px] uppercase text-faint">
-                {String(active + 1).padStart(2, '0')} / {String(tracks.length).padStart(2, '0')}
+                {String(active + 1).padStart(2, '0')} / {String(tracks.length).padStart(2, '0')} · one revealed at kickoff
               </span>
               <div className="flex gap-2">
                 <button

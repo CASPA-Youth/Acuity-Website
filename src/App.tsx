@@ -5,7 +5,6 @@ import Hero from './components/Hero'
 import EventOverview from './components/EventOverview'
 import ChallengeTracks from './components/ChallengeTracks'
 import ProjectIdeas from './components/ProjectIdeas'
-import Benefits from './components/Benefits'
 import HowItWorks from './components/HowItWorks'
 import Schedule from './components/Schedule'
 import Prizes from './components/Prizes'
@@ -78,7 +77,6 @@ export default function App() {
             <>
               <Hero play={!isLoading} />
               <EventOverview />
-              <Benefits />
               <HowItWorks />
             </>
           )}

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useReducedMotion } from 'framer-motion'
 
 const LINES = [
-  { p: '›', t: 'acuity start "themes revealed"', c: 'in' },
+  { p: '›', t: 'acuity start "everyday ML"', c: 'in' },
   { p: '↳', t: 'find a problem worth solving', c: 'out' },
   { p: '↳', t: 'sketch · choose tools · divide work', c: 'out' },
   { p: '↳', t: 'build · test · credit sources', c: 'out' },

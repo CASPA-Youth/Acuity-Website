@@ -28,41 +28,7 @@ export default function FinalCTA() {
           <br />
           <span className="text-indigo">We’ll bring the build sprint.</span>
         </h2>
-        <p className="mx-auto mt-6 max-w-xl font-body text-lg text-muted text-pretty">
-          {event.date} ·{' '}
-          <a
-            href={event.mapsLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline decoration-indigo/50 underline-offset-4 transition-colors hover:text-indigo"
-          >
-            {event.location}
-          </a>
-          . Build solo or with a team of up to four, and register at least one week before the
-          event.
-        </p>
-
-        <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-2 sm:grid-cols-3 sm:gap-3">
-          {[
-            ['Aug 6–7', 'two days'],
-            ['Hybrid', 'Santa Clara + online'],
-            ['Up to 4', 'students per team'],
-          ].map(([v, l], index) => (
-            <div
-              key={l}
-              className={`rounded-lg border border-line px-5 py-5 ${
-                index === 1 ? 'bg-heart' : 'bg-heart/20'
-              }`}
-            >
-              <div className="font-display text-xl font-bold text-seashell sm:text-2xl">{v}</div>
-              <div className="mt-1 font-mono text-[10px] uppercase text-faint">
-                {l}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
           <a
             href={event.registrationLink}
             target="_blank"
