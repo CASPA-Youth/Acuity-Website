@@ -34,7 +34,7 @@ export default function Hero({ play = true }: { play?: boolean }) {
           preload="auto"
           tabIndex={-1}
         >
-          <source src="/archer-fox-v3.mp4" type="video/mp4" />
+          <source src="/archer-fox-v4.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-r from-midnight from-[5%] via-midnight/80 via-[48%] to-midnight/5" />
       </div>

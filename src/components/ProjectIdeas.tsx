@@ -69,7 +69,7 @@ export default function ProjectIdeas() {
                 aria-hidden="true"
                 tabIndex={-1}
               >
-                <source src="/sitting-fox-v2.mp4" type="video/mp4" />
+                <source src="/sitting-fox-v3.mp4" type="video/mp4" />
               </video>
             </div>
 

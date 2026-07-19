@@ -49,7 +49,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
         >
-          <source src="/acuity-intro-v2.mp4" type="video/mp4" />
+          <source src="/acuity-intro-v3.mp4" type="video/mp4" />
         </motion.video>
       )}
 
