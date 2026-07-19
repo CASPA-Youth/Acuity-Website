@@ -57,40 +57,57 @@ export default function ProjectIdeas() {
           </ul>
 
           {/* detail panel */}
-          <div className="clip-sharp relative min-h-[320px] overflow-hidden rounded-lg border border-indigo/25 bg-heart/25 p-8 sm:p-10 lg:sticky lg:top-24">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={current.title}
-                initial={reduce ? false : { opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={reduce ? { opacity: 0 } : { opacity: 0, y: -8 }}
-                transition={{ duration: 0.3 }}
+          <div className="relative min-h-[320px] bg-midnight lg:sticky lg:top-24">
+            <div className="relative aspect-video overflow-hidden">
+              <video
+                className="absolute left-1/2 top-1/2 h-auto w-[115%] max-w-none -translate-x-1/2 -translate-y-1/2 object-cover"
+                autoPlay={!reduce}
+                loop={!reduce}
+                muted
+                playsInline
+                preload="metadata"
+                aria-hidden="true"
+                tabIndex={-1}
               >
-                <div className="kicker">{current.meta}</div>
-                <h3 className="mt-4 font-display text-2xl font-semibold sm:text-3xl">
-                  {current.title}
-                </h3>
-                <p className="mt-3 font-body leading-relaxed text-muted text-pretty">
-                  {current.description}
-                </p>
+                <source src="/sitting-fox-v2.mp4" type="video/mp4" />
+              </video>
+            </div>
 
-                <div className="mt-7 rounded-lg border border-line bg-midnight/60 p-4 font-mono text-[12.5px]">
-                  <div className="mb-3 text-[11px] uppercase text-faint">
-                    a focused build path
+            <div className="p-8 sm:p-10">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={current.title}
+                  initial={reduce ? false : { opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={reduce ? { opacity: 0 } : { opacity: 0, y: -8 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="kicker">{current.meta}</div>
+                  <h3 className="mt-4 font-display text-2xl font-semibold sm:text-3xl">
+                    {current.title}
+                  </h3>
+                  <p className="mt-3 font-body leading-relaxed text-muted text-pretty">
+                    {current.description}
+                  </p>
+
+                  <div className="mt-7 rounded-lg border border-line bg-midnight/60 p-4 font-mono text-[12.5px]">
+                    <div className="mb-3 text-[11px] uppercase text-faint">
+                      a focused build path
+                    </div>
+                    <div className="space-y-1.5">
+                      {current.trace.map((step, i) => (
+                        <div key={i} className="flex items-center gap-2">
+                          <span className="text-indigo">{i === current.trace.length - 1 ? '✓' : '↳'}</span>
+                          <span className={i === current.trace.length - 1 ? 'text-indigo' : 'text-muted'}>
+                            {step}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  <div className="space-y-1.5">
-                    {current.trace.map((step, i) => (
-                      <div key={i} className="flex items-center gap-2">
-                        <span className="text-indigo">{i === current.trace.length - 1 ? '✓' : '↳'}</span>
-                        <span className={i === current.trace.length - 1 ? 'text-indigo' : 'text-muted'}>
-                          {step}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
+                </motion.div>
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </div>

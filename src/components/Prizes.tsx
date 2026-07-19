@@ -34,10 +34,6 @@ export default function Prizes() {
           >
             <div
               aria-hidden
-              className="reticle-grid pointer-events-none absolute inset-0 opacity-20 mix-blend-overlay"
-            />
-            <div
-              aria-hidden
               className="pointer-events-none absolute -right-10 -top-20 h-48 w-48 rotate-45 border border-midnight/20"
             />
             <div className="relative flex items-center gap-2">

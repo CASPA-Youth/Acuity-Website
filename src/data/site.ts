@@ -19,15 +19,15 @@ export const event = {
   registrationLink: 'https://luma.com/jvtgzcj2',
   registrationStatus: 'Registration open',
   contactEmail: 'Contact details coming soon',
-  contactLink: '#contact',
+  contactLink: '/faq#contact',
   ctaPrimary: 'Register Now',
   ctaSecondary: 'Explore Themes',
 }
 
 export const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Themes', href: '#challenges' },
-  { label: 'Schedule', href: '#schedule' },
-  { label: 'Prizes', href: '#prizes' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'About', href: '/about' },
+  { label: 'Themes', href: '/themes' },
+  { label: 'Schedule', href: '/schedule' },
+  { label: 'Prizes', href: '/prizes' },
+  { label: 'FAQ', href: '/faq' },
 ]

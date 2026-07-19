@@ -23,7 +23,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
 
   return (
     <motion.div
-      className="loading-screen fixed inset-0 z-[100] grid place-items-center overflow-hidden bg-[#100829] px-6"
+      className="loading-screen fixed inset-0 z-[100] grid place-items-center overflow-hidden bg-midnight px-6"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: reduce ? 0.01 : 0.55, ease: [0.76, 0, 0.24, 1] }}
@@ -49,7 +49,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
         >
-          <source src="/logo-animation.mp4" type="video/mp4" />
+          <source src="/acuity-intro-v2.mp4" type="video/mp4" />
         </motion.video>
       )}
 
@@ -67,8 +67,8 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         }
         animate={reduce ? undefined : { y: [0, 0, 90], opacity: [1, 1, 0] }}
         transition={reduce ? undefined : {
-          duration: 7.04,
-          times: [0, 0.858, 1],
+          duration: 8.021,
+          times: [0, 0.8753, 1],
           ease: [0.76, 0, 0.24, 1],
         }}
       >
@@ -95,7 +95,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
               className="h-full origin-left bg-indigo shadow-[0_0_12px_rgba(144,91,244,0.9)]"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
-              transition={{ duration: reduce ? 0.01 : 5.7, delay: reduce ? 0 : 0.55, ease: 'linear' }}
+              transition={{ duration: reduce ? 0.01 : 7.471, delay: reduce ? 0 : 0.55, ease: 'linear' }}
             />
           </div>
           <div className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.18em] text-faint">

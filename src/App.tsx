@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import EventOverview from './components/EventOverview'
@@ -15,10 +15,43 @@ import FinalCTA from './components/FinalCTA'
 import Footer from './components/Footer'
 import CursorReticle from './components/CursorReticle'
 import LoadingScreen from './components/LoadingScreen'
+import { event, navLinks } from './data/site'
 
 export default function App() {
-  const [isLoading, setIsLoading] = useState(true)
-  const finishLoading = useCallback(() => setIsLoading(false), [])
+  const path = window.location.pathname === '/'
+    ? '/about'
+    : window.location.pathname.replace(/\/$/, '')
+  const page = ['/about', '/themes', '/schedule', '/prizes', '/faq'].includes(path)
+    ? path
+    : '/about'
+  const [isLoading, setIsLoading] = useState(() => {
+    try {
+      return sessionStorage.getItem('acuity-intro-seen') !== 'true'
+    } catch {
+      return true
+    }
+  })
+  const finishLoading = useCallback(() => {
+    try {
+      sessionStorage.setItem('acuity-intro-seen', 'true')
+    } catch {
+      // The site still works if storage is unavailable.
+    }
+    setIsLoading(false)
+  }, [])
+
+  useEffect(() => {
+    const label = navLinks.find((link) => link.href === page)?.label ?? 'About'
+    document.title = `${label} · ${event.name}`
+
+    if (window.location.hash) {
+      window.requestAnimationFrame(() => {
+        document.querySelector(window.location.hash)?.scrollIntoView()
+      })
+    } else {
+      window.scrollTo(0, 0)
+    }
+  }, [page])
 
   return (
     <>
@@ -33,25 +66,41 @@ export default function App() {
         transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
       >
         <a
-          href="#about"
+          href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-indigo focus:px-4 focus:py-2 focus:font-display focus:font-semibold focus:text-midnight"
         >
           Skip to content
         </a>
         {!isLoading && <CursorReticle />}
         <Navbar />
-        <main>
-          <Hero />
-          <EventOverview />
-          <ChallengeTracks />
-          <ProjectIdeas />
-          <Benefits />
-          <HowItWorks />
-          <Schedule />
-          <Prizes />
-          <Sponsors />
-          <FAQ />
-          <FinalCTA />
+        <main id="main-content" className={page === '/about' ? undefined : 'pt-[72px]'}>
+          {page === '/about' && (
+            <>
+              <Hero play={!isLoading} />
+              <EventOverview />
+              <Benefits />
+              <HowItWorks />
+            </>
+          )}
+          {page === '/themes' && (
+            <>
+              <ChallengeTracks />
+              <ProjectIdeas />
+            </>
+          )}
+          {page === '/schedule' && <Schedule />}
+          {page === '/prizes' && (
+            <>
+              <Prizes />
+              <Sponsors />
+            </>
+          )}
+          {page === '/faq' && (
+            <>
+              <FAQ />
+              <FinalCTA />
+            </>
+          )}
         </main>
         <Footer />
       </motion.div>

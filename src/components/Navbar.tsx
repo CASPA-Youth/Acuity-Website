@@ -6,32 +6,16 @@ import { navLinks, event } from '../data/site'
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
-  const [active, setActive] = useState<string>('')
   const reduce = useReducedMotion()
   const menuButtonRef = useRef<HTMLButtonElement>(null)
   const menuRef = useRef<HTMLDivElement>(null)
+  const currentPath = window.location.pathname === '/' ? '/about' : window.location.pathname.replace(/\/$/, '')
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  // Scroll-spy for active nav state
-  useEffect(() => {
-    const ids = navLinks.map((l) => l.href.slice(1))
-    const els = ids.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[]
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) setActive(e.target.id)
-        })
-      },
-      { rootMargin: '-45% 0px -50% 0px', threshold: 0 },
-    )
-    els.forEach((el) => obs.observe(el))
-    return () => obs.disconnect()
   }, [])
 
   // Lock body scroll while the mobile menu is open
@@ -90,7 +74,7 @@ export default function Navbar() {
       }`}
     >
       <nav className="shell flex h-[72px] items-center justify-between" aria-label="Primary">
-        <a href="#top" className="flex items-center gap-3" aria-label={`${event.name} home`}>
+        <a href="/about" className="flex items-center gap-3" aria-label={`${event.name} home`}>
           <img src="/logo-square.png" alt="" aria-hidden="true" className="h-8 w-8" />
           <span className="font-display text-lg font-bold">
             Acuity<span className="text-indigo"> Hacks</span>
@@ -99,12 +83,12 @@ export default function Navbar() {
 
         <div className="hidden items-center gap-1 lg:flex">
           {navLinks.map((l) => {
-            const isActive = active === l.href.slice(1)
+            const isActive = currentPath === l.href
             return (
               <a
                 key={l.href}
                 href={l.href}
-                aria-current={isActive ? 'location' : undefined}
+                aria-current={isActive ? 'page' : undefined}
                 className={`relative rounded-md px-3.5 py-2 font-body text-sm transition-colors ${
                   isActive ? 'text-seashell' : 'text-muted hover:text-seashell'
                 }`}

@@ -30,12 +30,7 @@
 
   body {
     margin: 0;
-    background-color: #0f032d;
-    background-image:
-      linear-gradient(rgba(239, 239, 239, 0.022) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(239, 239, 239, 0.022) 1px, transparent 1px);
-    background-size: 80px 80px;
-    background-attachment: fixed;
+    background-color: #0d0032;
     color: #efefef;
     font-family: 'Hanken Grotesk', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -45,7 +40,7 @@
 
   ::selection {
     background: #905bf4;
-    color: #0f032d;
+    color: #0d0032;
   }
 
   /* Consistent, visible keyboard focus across the whole site */
@@ -107,22 +102,6 @@
     background: #905bf4;
     transform: rotate(45deg);
     flex-shrink: 0;
-  }
-
-  /* Subtle precision grid used behind select sections */
-  .reticle-grid {
-    background-image:
-      linear-gradient(rgba(15, 3, 45, 0.12) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(15, 3, 45, 0.12) 1px, transparent 1px);
-    background-size: 48px 48px;
-  }
-
-  .loading-grid {
-    background-image:
-      linear-gradient(rgba(144, 91, 244, 0.055) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(144, 91, 244, 0.055) 1px, transparent 1px);
-    background-size: 52px 52px;
-    mask-image: radial-gradient(circle at center, black 5%, transparent 72%);
   }
 
   .loading-screen::after {

@@ -86,7 +86,7 @@ export default function ChallengeTracks() {
                 </div>
 
                 <a
-                  href="#ideas"
+                  href="/themes#ideas"
                   className="group inline-flex w-fit items-center gap-2 font-mono text-[12px] uppercase text-indigo transition-colors hover:text-indigo-soft"
                 >
                   Explore project formats

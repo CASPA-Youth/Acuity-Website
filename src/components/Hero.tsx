@@ -1,19 +1,50 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight, Compass } from 'lucide-react'
+import { useEffect, useRef } from 'react'
 import { event } from '../data/site'
-import AgentTrace from './AgentTrace'
 
-export default function Hero() {
+export default function Hero({ play = true }: { play?: boolean }) {
   const reduce = useReducedMotion()
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    if (play && !reduce) {
+      video.currentTime = 0
+      void video.play().catch(() => {
+        // Muted inline video should autoplay; the browser may still decline it.
+      })
+    } else {
+      video.pause()
+      video.currentTime = 0
+    }
+  }, [play, reduce])
 
   return (
     <section id="top" className="relative overflow-hidden pt-[72px]">
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <video
+          ref={videoRef}
+          className="absolute left-[60%] top-1/2 h-auto w-[140%] max-w-none -translate-x-1/2 -translate-y-1/2 object-contain sm:w-[150%] lg:w-[125%]"
+          loop={!reduce}
+          muted
+          playsInline
+          preload="auto"
+          tabIndex={-1}
+        >
+          <source src="/archer-fox-v3.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-r from-midnight from-[5%] via-midnight/80 via-[48%] to-midnight/5" />
+      </div>
+
       <div
         aria-hidden
         className="pointer-events-none absolute -right-32 top-24 h-[520px] w-[520px] rotate-45 border border-indigo/20"
       />
 
-      <div className="shell relative grid items-center gap-14 py-16 sm:py-20 lg:grid-cols-[0.95fr_1.05fr] lg:py-28">
+      <div className="shell relative z-10 grid items-center gap-14 py-16 sm:py-20 lg:grid-cols-[0.95fr_1.05fr] lg:py-28">
         {/* left: editorial identity */}
         <div>
           <motion.div
@@ -76,7 +107,7 @@ export default function Hero() {
               <ArrowRight size={18} className="transition-transform group-hover:translate-x-0.5" />
             </a>
             <a
-              href="#challenges"
+              href="/themes"
               className="group inline-flex items-center gap-2 rounded-[10px] bg-heart px-7 py-3.5 font-display font-semibold text-seashell transition-all hover:-translate-y-0.5 hover:bg-indigo hover:text-midnight"
             >
               <Compass size={18} />
@@ -119,24 +150,6 @@ export default function Hero() {
           </motion.dl>
         </div>
 
-        {/* right: build terminal + mark */}
-        <motion.div
-          className="relative"
-          initial={reduce ? false : { opacity: 0, y: 28, scale: 0.98 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.75, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className="relative mx-auto w-full max-w-xl">
-            <AgentTrace />
-            <div className="mt-4 flex items-center justify-between font-mono text-[11px] uppercase text-faint">
-              <span className="inline-flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-indigo animate-blink" />
-                {event.registrationStatus}
-              </span>
-              <span>2 days · hybrid</span>
-            </div>
-          </div>
-        </motion.div>
       </div>
 
     </section>

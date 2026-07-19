@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="shell py-16">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr] lg:gap-16">
           <div>
-            <a href="#top" className="flex items-center gap-3">
+            <a href="/about" className="flex items-center gap-3">
               <img src="/logo-square.png" alt="" aria-hidden className="h-8 w-8" />
               <span className="font-display text-lg font-bold">
                 Acuity<span className="text-indigo"> Hacks</span>
@@ -71,7 +71,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#sponsors" className="inline-flex min-h-11 items-center text-muted transition-colors hover:text-seashell">
+                <a href="/prizes#sponsors" className="inline-flex min-h-11 items-center text-muted transition-colors hover:text-seashell">
                   Become a sponsor
                 </a>
               </li>

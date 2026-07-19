@@ -85,7 +85,7 @@ export default function Benefits() {
             categories.
           </p>
           <a
-            href="#prizes"
+            href="/prizes"
             className="font-mono text-[13px] uppercase text-indigo hover:text-indigo-soft"
           >
             See the prizes →

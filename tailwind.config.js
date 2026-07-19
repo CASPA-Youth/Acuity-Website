@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        midnight: '#0F032D',
+        midnight: '#0D0032',
         heart: '#4E2BCC',
         indigo: {
           DEFAULT: '#905BF4',
