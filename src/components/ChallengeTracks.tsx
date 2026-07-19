@@ -58,14 +58,30 @@ export default function ChallengeTracks() {
               }}
               className="clip-sharp relative min-h-[460px] cursor-grab overflow-hidden border border-indigo/25 bg-heart/25 p-8 active:cursor-grabbing sm:p-12 lg:min-h-[500px] lg:p-16"
             >
+              <motion.div
+                aria-hidden
+                className="pointer-events-none absolute inset-0"
+                initial={reduce ? false : { opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: reduce ? 0 : 0.55, delay: reduce ? 0 : 0.08 }}
+              >
+                <img
+                  src={current.icon}
+                  alt=""
+                  className="absolute -right-[24%] top-1/2 w-[92%] max-w-[620px] -translate-y-1/2 object-contain opacity-50 sm:-right-[8%] sm:w-[62%] sm:opacity-75 lg:right-[2%] lg:w-[48%]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-midnight/95 from-[0%] via-midnight/70 via-[55%] to-midnight/5" />
+                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-midnight/40 to-transparent" />
+              </motion.div>
+
               <div
                 aria-hidden
-                className="pointer-events-none absolute right-4 top-0 font-display text-[13rem] font-bold leading-none text-indigo/[0.055] sm:right-10 sm:text-[20rem]"
+                className="pointer-events-none absolute -bottom-5 left-5 z-[1] font-display text-[9rem] font-bold leading-none text-indigo/[0.14] sm:-bottom-8 sm:left-10 sm:text-[13rem]"
               >
                 {current.index}
               </div>
 
-              <div className="relative max-w-4xl">
+              <div className="relative z-10 max-w-4xl">
                 <span className="inline-flex rounded-full border border-indigo/50 px-3 py-1 font-mono text-[11px] uppercase text-muted">
                   {current.tag}
                 </span>

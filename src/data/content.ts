@@ -4,6 +4,7 @@ export type Track = {
   title: string
   tag: string
   level: string
+  icon: string
   description: string
 }
 
@@ -14,6 +15,7 @@ export const tracks: Track[] = [
     title: 'Sustainability & Social Good',
     tag: 'Possible theme',
     level: 'Theme pool',
+    icon: '/theme-icons/sustainability.png',
     description:
       'Build for a more sustainable, accessible, or equitable future by focusing on a real need in a community.',
   },
@@ -23,6 +25,7 @@ export const tracks: Track[] = [
     title: 'Machine Learning',
     tag: 'Possible theme',
     level: 'Theme pool',
+    icon: '/theme-icons/machine-learning.png',
     description:
       'Apply machine learning to a meaningful problem and make the model useful, understandable, and purposeful.',
   },
@@ -32,6 +35,7 @@ export const tracks: Track[] = [
     title: 'Productivity',
     tag: 'Possible theme',
     level: 'Theme pool',
+    icon: '/theme-icons/productivity.png',
     description:
       'Rethink a frustrating task or workflow and build a tool that helps people spend their time more intentionally.',
   },
@@ -41,6 +45,7 @@ export const tracks: Track[] = [
     title: 'Education',
     tag: 'Possible theme',
     level: 'Theme pool',
+    icon: '/theme-icons/education.png',
     description:
       'Create a tool that makes learning, teaching, practice, or access to knowledge more effective.',
   },
@@ -50,6 +55,7 @@ export const tracks: Track[] = [
     title: 'Medicine, Global Health & Mental Health',
     tag: 'Possible theme',
     level: 'Theme pool',
+    icon: '/theme-icons/medicine.png',
     description:
       'Prototype a thoughtful way to support health, wellbeing, or access while treating safety and privacy seriously.',
   },
