@@ -46,10 +46,7 @@ export default function HowItWorks() {
         className="pointer-events-none absolute inset-0 z-[2] bg-midnight/40"
       />
 
-      <div
-        className="shell section-pad relative z-10 pb-24 sm:pb-28 lg:pb-32"
-        style={{ borderInline: 'none' }}
-      >
+      <div className="shell section-pad relative z-10 pb-24 sm:pb-28 lg:pb-32">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <SectionHeader
             index="03"

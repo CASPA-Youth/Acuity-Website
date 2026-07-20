@@ -76,10 +76,6 @@
     border-top: 1px solid rgba(239, 239, 239, 0.14);
   }
 
-  .section-line > .shell {
-    border-inline: 1px solid rgba(239, 239, 239, 0.09);
-  }
-
   main > .section-line:nth-of-type(even) {
     background: rgba(78, 43, 204, 0.1);
   }

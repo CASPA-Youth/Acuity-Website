@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { SectionHeader } from './primitives'
+import PeekFox from './PeekFox'
 import { ideas } from '../data/content'
 
 export default function ProjectIdeas() {
@@ -9,7 +10,12 @@ export default function ProjectIdeas() {
   const reduce = useReducedMotion()
 
   return (
-    <section id="ideas" className="section-line relative scroll-mt-24">
+    <section
+      id="ideas"
+      className="section-line relative overflow-hidden scroll-mt-24"
+      style={{ backgroundColor: '#24174E' }}
+    >
+      <PeekFox />
       <div className="shell section-pad">
         <SectionHeader
           index="02"
