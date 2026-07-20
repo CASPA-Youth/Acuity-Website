@@ -33,7 +33,7 @@ export default function EventOverview() {
     >
       <div className="shell section-pad">
         <div className="relative lg:min-h-[640px]">
-          <div className="relative z-10 lg:w-[49%]">
+          <div className="relative z-10 lg:ml-auto lg:w-[49%]">
             <SectionHeader
               index="00"
               kicker="The Event"
@@ -70,11 +70,11 @@ export default function EventOverview() {
               className="absolute inset-0"
               style={{
                 transform: `translate(${thinkingFox.x}%, ${thinkingFox.y}%) scale(${thinkingFox.zoom})`,
-                transformOrigin: 'right bottom',
+                transformOrigin: 'left bottom',
               }}
             >
               <video
-                className="absolute inset-y-0 right-0 h-full w-full origin-bottom-right translate-x-[130px] translate-y-[70px] object-contain object-right-bottom sm:translate-x-[170px] sm:translate-y-[85px] lg:w-[75%] lg:translate-x-[180px] lg:translate-y-[90px] lg:scale-[1.3]"
+                className="absolute inset-y-0 left-0 h-full w-full origin-bottom-left -translate-x-[130px] translate-y-[70px] object-contain object-left-bottom sm:-translate-x-[170px] sm:translate-y-[85px] lg:w-[75%] lg:-translate-x-[180px] lg:translate-y-[90px] lg:scale-[1.3]"
                 style={{
                   clipPath: `inset(${thinkingFox.crop.top}% ${thinkingFox.crop.right}% ${thinkingFox.crop.bottom}% ${thinkingFox.crop.left}%)`,
                 }}
@@ -95,7 +95,7 @@ export default function EventOverview() {
 
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 z-[5] bg-gradient-to-r from-[#170C37] from-[5%] via-[#170C37]/80 via-[48%] to-[#170C37]/5"
+        className="pointer-events-none absolute inset-0 z-[5] bg-gradient-to-l from-[#170C37] from-[5%] via-[#170C37]/80 via-[48%] to-[#170C37]/5"
       />
     </section>
   )
