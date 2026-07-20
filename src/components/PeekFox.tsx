@@ -28,7 +28,7 @@ export default function PeekFox() {
         side,
         top: 32 + Math.random() * 34,
       })
-    }, 5000)
+    }, 10000)
 
     return () => {
       if (timerRef.current !== null) window.clearInterval(timerRef.current)
