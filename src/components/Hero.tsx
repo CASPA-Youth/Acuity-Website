@@ -27,7 +27,7 @@ export default function Hero({ play = true }: { play?: boolean }) {
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <video
           ref={videoRef}
-          className="absolute left-[60%] top-1/2 h-auto w-[140%] max-w-none -translate-x-1/2 -translate-y-1/2 object-contain sm:w-[150%] lg:w-[125%]"
+          className="absolute left-[60%] top-1/2 h-auto w-[140%] max-w-none -translate-x-1/2 -translate-y-1/2 object-contain sm:w-[150%] lg:w-full"
           loop={!reduce}
           muted
           playsInline
