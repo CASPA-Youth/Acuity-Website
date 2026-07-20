@@ -12,11 +12,11 @@ export default function ProjectIdeas() {
   return (
     <section
       id="ideas"
-      className="section-line relative overflow-hidden scroll-mt-24"
+      className="section-line relative isolate overflow-hidden scroll-mt-24"
       style={{ backgroundColor: '#24174E' }}
     >
       <PeekFox />
-      <div className="shell section-pad">
+      <div className="shell section-pad relative z-10">
         <SectionHeader
           index="02"
           kicker="Project Formats"

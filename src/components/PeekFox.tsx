@@ -45,7 +45,7 @@ export default function PeekFox() {
         <motion.div
           key={peek.id}
           aria-hidden="true"
-          className={`pointer-events-none absolute z-30 w-[clamp(188px,22.5vw,350px)] ${
+          className={`pointer-events-none absolute z-0 w-[clamp(188px,22.5vw,350px)] ${
             peek.side === 'left' ? 'left-0' : 'right-0'
           }`}
           style={{ top: `${peek.top}%` }}
