@@ -103,7 +103,7 @@ export default function Sponsors() {
                 whileInView={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className="block w-full drop-shadow-[0_24px_30px_rgba(13,0,50,0.45)]"
+                className="block w-full brightness-75 drop-shadow-[0_24px_30px_rgba(13,0,50,0.45)]"
               />
             </div>
           </button>
@@ -124,7 +124,7 @@ export default function Sponsors() {
                 whileInView={reduce ? undefined : { opacity: 1, x: 0, y: 0, rotate: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.75, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="block w-full drop-shadow-[0_22px_28px_rgba(13,0,50,0.42)]"
+                className="block w-full brightness-75 drop-shadow-[0_22px_28px_rgba(13,0,50,0.42)]"
               />
             </div>
           </button>
@@ -145,7 +145,7 @@ export default function Sponsors() {
                 whileInView={reduce ? undefined : { opacity: 1, x: 0, y: 0, rotate: 0 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.75, delay: 0.65, ease: [0.22, 1, 0.36, 1] }}
-                className="block w-full drop-shadow-[0_22px_28px_rgba(13,0,50,0.42)]"
+                className="block w-full brightness-75 drop-shadow-[0_22px_28px_rgba(13,0,50,0.42)]"
               />
             </div>
           </button>
@@ -166,7 +166,7 @@ export default function Sponsors() {
                 whileInView={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, margin: '-80px' }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="block w-full drop-shadow-[0_30px_38px_rgba(5,0,25,0.55)]"
+                className="block w-full brightness-75 drop-shadow-[0_30px_38px_rgba(5,0,25,0.55)]"
               />
             </div>
           </button>
