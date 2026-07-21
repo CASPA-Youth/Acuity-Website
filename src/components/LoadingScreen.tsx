@@ -5,6 +5,13 @@ type LoadingScreenProps = {
   onComplete: () => void
 }
 
+const INTRO_DURATION_SECONDS = 6.4
+const INTRO_FALLBACK_GRACE_SECONDS = 2
+const STATUS_REVEAL_DELAY_SECONDS = 0.55
+const STATUS_EXIT_DURATION_SECONDS = 1
+const STATUS_EXIT_START =
+  (INTRO_DURATION_SECONDS - STATUS_EXIT_DURATION_SECONDS) / INTRO_DURATION_SECONDS
+
 export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   const reduce = useReducedMotion()
 
@@ -12,8 +19,11 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
     const previousOverflow = document.body.style.overflow
     document.body.style.overflow = 'hidden'
 
-    // The longer timeout is only a fallback if a browser cannot report playback ending.
-    const timer = window.setTimeout(onComplete, reduce ? 350 : 10000)
+    // Keep the site accessible if a browser cannot report playback ending.
+    const fallbackDelay = reduce
+      ? 350
+      : (INTRO_DURATION_SECONDS + INTRO_FALLBACK_GRACE_SECONDS) * 1000
+    const timer = window.setTimeout(onComplete, fallbackDelay)
 
     return () => {
       window.clearTimeout(timer)
@@ -49,7 +59,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, ease: 'easeOut' }}
         >
-          <source src="/acuity-intro-v3.mp4" type="video/mp4" />
+          <source src="/acuity-intro-v4.mp4" type="video/mp4" />
         </motion.video>
       )}
 
@@ -67,8 +77,8 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         }
         animate={reduce ? undefined : { y: [0, 0, 90], opacity: [1, 1, 0] }}
         transition={reduce ? undefined : {
-          duration: 8.021,
-          times: [0, 0.8753, 1],
+          duration: INTRO_DURATION_SECONDS,
+          times: [0, STATUS_EXIT_START, 1],
           ease: [0.76, 0, 0.24, 1],
         }}
       >
@@ -88,14 +98,18 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
           className="mt-7 w-52 sm:w-64"
           initial={reduce ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.35, delay: reduce ? 0 : 0.55 }}
+          transition={{ duration: 0.35, delay: reduce ? 0 : STATUS_REVEAL_DELAY_SECONDS }}
         >
           <div className="h-px overflow-hidden bg-indigo/20">
             <motion.div
               className="h-full origin-left bg-indigo shadow-[0_0_12px_rgba(144,91,244,0.9)]"
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
-              transition={{ duration: reduce ? 0.01 : 7.471, delay: reduce ? 0 : 0.55, ease: 'linear' }}
+              transition={{
+                duration: reduce ? 0.01 : INTRO_DURATION_SECONDS - STATUS_REVEAL_DELAY_SECONDS,
+                delay: reduce ? 0 : STATUS_REVEAL_DELAY_SECONDS,
+                ease: 'linear',
+              }}
             />
           </div>
           <div className="mt-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.18em] text-faint">

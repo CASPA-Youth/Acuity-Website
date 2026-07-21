@@ -27,8 +27,8 @@ export default function ChallengeTracks() {
         <SectionHeader
           index="01"
           kicker="Possible Themes"
-          title={<>Five possibilities. Two final themes.</>}
-          intro="Prepare to think broadly. Two final themes will be selected from this pool and revealed when the hackathon begins."
+          title={<>Three possibilities. One final theme.</>}
+          intro="Prepare to think broadly. One final theme will be selected from this pool and revealed when the hackathon begins."
           className="max-w-2xl"
         />
 
@@ -123,7 +123,7 @@ export default function ChallengeTracks() {
 
             <div className="flex items-center justify-between gap-4 sm:justify-end">
               <span className="font-mono text-[11px] uppercase text-faint">
-                {String(active + 1).padStart(2, '0')} / {String(tracks.length).padStart(2, '0')} · two revealed at kickoff
+                {String(active + 1).padStart(2, '0')} / {String(tracks.length).padStart(2, '0')} · one revealed at kickoff
               </span>
               <div className="flex gap-2">
                 <button

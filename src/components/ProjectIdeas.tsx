@@ -19,9 +19,9 @@ export default function ProjectIdeas() {
       <div className="shell section-pad relative z-10">
         <SectionHeader
           index="02"
-          kicker="Project Formats"
+          kicker="Project Ideas"
           title={<>Build it your way.</>}
-          intro="The two revealed themes set the direction, but your project can take many forms. Choose a format to see one possible build path."
+          intro="The revealed theme sets the direction, but your project can take many forms. Choose an idea to see one possible build path."
           className="mx-auto max-w-2xl text-center [&_.kicker]:justify-center"
         />
 

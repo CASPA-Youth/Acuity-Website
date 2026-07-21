@@ -27,7 +27,7 @@ export default function Hero({ play = true }: { play?: boolean }) {
       <div aria-hidden className="pointer-events-none absolute inset-0">
         <video
           ref={videoRef}
-          className="absolute left-[60%] top-1/2 h-auto w-[140%] max-w-none -translate-x-1/2 -translate-y-1/2 object-contain sm:w-[150%] lg:w-full"
+          className="absolute inset-0 h-full w-full object-cover object-[5%_50%]"
           loop={!reduce}
           muted
           playsInline
@@ -46,7 +46,7 @@ export default function Hero({ play = true }: { play?: boolean }) {
 
       <div className="shell relative z-10 grid items-center gap-14 py-16 sm:py-20 lg:grid-cols-[0.95fr_1.05fr] lg:py-28">
         {/* left: editorial identity */}
-        <div>
+        <div className="sm:translate-x-6 lg:translate-x-8">
           <motion.div
             initial={reduce ? false : { opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}

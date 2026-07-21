@@ -17,7 +17,7 @@ const principles = [
   {
     n: '03',
     title: 'Original work, clearly shown',
-    body: 'AI and third-party tools can support the build, but the project should reflect your team’s own thinking. Credit what you use and show the panel what you made.',
+    body: 'AI tools can assist your build, but fully vibe-coded or unreviewed projects may be penalized. Understand what you submit, credit third-party work, and show the panel what your team made.',
   },
 ]
 
