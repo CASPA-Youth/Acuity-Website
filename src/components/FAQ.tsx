@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Plus } from 'lucide-react'
 import { SectionHeader } from './primitives'
+import PeekFox from './PeekFox'
 import { faqs } from '../data/content'
 import { event } from '../data/site'
 
@@ -10,8 +11,13 @@ export default function FAQ() {
   const reduce = useReducedMotion()
 
   return (
-    <section id="faq" className="section-line relative scroll-mt-24">
-      <div className="shell section-pad">
+    <section
+      id="faq"
+      className="section-line relative isolate overflow-hidden scroll-mt-24"
+      style={{ backgroundColor: '#24174E' }}
+    >
+      <PeekFox />
+      <div className="shell section-pad relative z-10">
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
             <SectionHeader

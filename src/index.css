@@ -84,6 +84,30 @@
     border-radius: 3px;
   }
 
+  .sponsor-podium-piece {
+    position: absolute;
+    left: var(--piece-x-mobile);
+    bottom: var(--piece-bottom-mobile);
+    width: var(--piece-width-mobile);
+    transform: translateX(-50%);
+  }
+
+  @media (min-width: 640px) {
+    .sponsor-podium-piece {
+      left: var(--piece-x-tablet);
+      bottom: var(--piece-bottom-tablet);
+      width: var(--piece-width-tablet);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .sponsor-podium-piece {
+      left: var(--piece-x-desktop);
+      bottom: var(--piece-bottom-desktop);
+      width: var(--piece-width-desktop);
+    }
+  }
+
   /* Mono numbered section kicker — the brand's structural device */
   .kicker {
     font-family: 'Space Mono', monospace;
