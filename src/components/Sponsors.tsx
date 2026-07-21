@@ -76,7 +76,7 @@ export default function Sponsors() {
           />
           <div className="mx-auto mt-7 flex w-fit items-center gap-2 border border-indigo/30 bg-heart/20 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.12em] text-indigo-soft">
             <MousePointerClick size={15} aria-hidden="true" />
-            Click a fox to explore our sponsorship options
+            Click a fox or the podium to explore our sponsorship options
           </div>
         </div>
 
@@ -150,20 +150,26 @@ export default function Sponsors() {
             </div>
           </button>
 
-          <div
-            className="sponsor-podium-piece z-20"
+          <button
+            type="button"
+            aria-haspopup="dialog"
+            aria-label="View In-kind or Friend sponsorship details"
+            onClick={() => selectTier('In-kind / Friend')}
+            className="sponsor-podium-piece group z-20 cursor-pointer appearance-none border-0 bg-transparent p-0"
             style={pieceStyle(sponsorPodiumSettings.podium)}
           >
-            <motion.img
-              src="/sponsors/podium.png"
-              alt=""
-              initial={reduce ? false : { opacity: 0, y: 65, scale: 0.96 }}
-              whileInView={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="block w-full drop-shadow-[0_30px_38px_rgba(5,0,25,0.55)]"
-            />
-          </div>
+            <div className="transition-transform duration-300 group-hover:scale-[1.015]">
+              <motion.img
+                src="/sponsors/podium.png"
+                alt=""
+                initial={reduce ? false : { opacity: 0, y: 65, scale: 0.96 }}
+                whileInView={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: '-80px' }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                className="block w-full drop-shadow-[0_30px_38px_rgba(5,0,25,0.55)]"
+              />
+            </div>
+          </button>
         </div>
 
         <AnimatePresence mode="wait">

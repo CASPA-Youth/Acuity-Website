@@ -17,7 +17,7 @@ export const tracks: Track[] = [
     level: 'Theme pool',
     icon: '/theme-icons/medicine.png',
     description:
-      'Create a consumer app that supports mental wellness or healthy habits. Projects are non-medical prototypes and should be grounded in thoughtful psychology and real user needs.',
+      'Create a consumer app that supports mental wellness or healthy habits. Projects are non-medical prototypes grounded in thoughtful psychology and real user needs, with an emphasis on psychological utility and technical complexity.',
   },
   {
     id: 'machine-learning',
@@ -37,7 +37,7 @@ export const tracks: Track[] = [
     level: 'Theme pool',
     icon: '/theme-icons/random.png',
     description:
-      'Simulate a real-world data system—such as a supply chain—with randomized sources, transit, outcomes, and losses. Make the live data understandable through a strong interactive visualization.',
+      'Simulate a real-world data system—such as a supply chain—with randomized sources, transit, outcomes, and losses. Make the live data understandable through a strong interactive UI or 3D visualization.',
   },
 ]
 
@@ -125,8 +125,8 @@ export const benefits: Benefit[] = [
 export const howItWorks = [
   { step: '1', title: 'Register', body: 'Submit one form per student at least one week before the event.' },
   { step: '2', title: 'Form a team', body: 'Build solo, team up with as many as three others, or join team matching.' },
-  { step: '3', title: 'Meet the theme', body: 'The final theme is selected from the announced pool and revealed at the Day 1 kickoff.' },
-  { step: '4', title: 'Build', body: 'Create an original project with a focused user, a thoughtful solution, and a working demo.' },
+  { step: '3', title: 'Meet the theme', body: 'The final theme is selected from the announced pool and revealed at the Day 1 kickoff to prevent pre-building.' },
+  { step: '4', title: 'Build', body: 'Create an original project during the event. Premade projects and premade boilerplate code are not allowed.' },
   { step: '5', title: 'Attribute', body: 'Credit every third-party library, asset, model, and source you use.' },
   { step: '6', title: 'Submit', body: 'Turn in a GitHub repository link, slide deck, demo video, and team information by noon on Aug 7.' },
   { step: '7', title: 'Present', body: 'Show the panel what you built, how it works, and why it matters.' },
@@ -223,11 +223,11 @@ export type Faq = { q: string; a: string }
 export const faqs: Faq[] = [
   { q: 'Who can participate?', a: 'Acuity Hackathon is open to middle and high school students. Students at every experience level are welcome.' },
   { q: 'Do I need a team?', a: 'No. Build solo, register with teammates, or use team matching at the event. Teams may have up to four members.' },
-  { q: 'Is the event in person or online?', a: 'Both. Join at 2933 Bunker Hill Ln in Santa Clara or participate through Zoom and Discord. Both groups follow the same event timeline.' },
-  { q: 'What are the possible themes?', a: 'The three candidates are Mental Health, Machine Learning & AI Agents, and Randomized Simulation. One final theme will be selected from the pool and revealed at kickoff on Day 1.' },
+  { q: 'Is the event in person or online?', a: 'Both. Join at 2933 Bunker Hill Ln, Suite 205, in Santa Clara or participate through Zoom and Discord. Both groups follow the same event timeline.' },
+  { q: 'What are the possible themes?', a: 'The three candidates are Mental Health, Machine Learning & AI Agents, and Randomized Simulation. One final theme will be selected from the pool and revealed at kickoff on Day 1 to prevent pre-building.' },
   { q: 'What can I build?', a: 'Respond to the revealed theme with an original project. Directions under consideration include wellness apps, agentic workflow tools, live data simulations, cybersecurity tools, communication hubs, finance trackers, and browser extensions.' },
   { q: 'Can I use AI?', a: 'Yes. AI development tools and assistants are allowed, but vibe coding or generating an entire unreviewed project is prohibited and may be penalized. Your team must understand, review, and be able to explain what it submits.' },
-  { q: 'Can I use existing code or third-party tools?', a: 'Do not bring a premade project or plagiarize code. Your submission must be primarily original work created during the event, and every third-party library, asset, model, source, or other contribution must be credited.' },
+  { q: 'Can I use existing code or third-party tools?', a: 'Do not bring a premade project, premade boilerplate code, or plagiarized code. Your submission must be primarily original work created during the event, and every third-party library, asset, model, source, or other contribution must be credited.' },
   { q: 'How are projects judged?', a: 'A professional panel reviews creativity, impact, complexity, execution and functionality, and the presentation or demo. Final scoring details will be shared with participants.' },
   { q: 'What will I submit?', a: 'By 12:00 PM on Aug 7, submit a GitHub repository link, presentation slide deck, demo video, and team information. Credit all third-party work in your project.' },
   { q: 'When do I need to register?', a: 'Submit the linked registration form at least one week before the event.' },

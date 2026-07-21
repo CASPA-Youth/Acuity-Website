@@ -12,9 +12,9 @@ export const event = {
   date: 'August 6–7, 2026',
   dateShort: 'Aug 6–7 · 2026',
   location: 'Santa Clara, CA / Online',
-  venueAddress: '2933 Bunker Hill Ln, Santa Clara, CA 95054',
+  venueAddress: '2933 Bunker Hill Ln, Suite 205, Santa Clara, CA 95054',
   mapsLink:
-    'https://www.google.com/maps/search/?api=1&query=2933+Bunker+Hill+Ln%2C+Santa+Clara%2C+CA+95054',
+    'https://www.google.com/maps/search/?api=1&query=2933+Bunker+Hill+Ln%2C+Suite+205%2C+Santa+Clara%2C+CA+95054',
   registrationDeadline: '1 week before the event',
   registrationLink: 'https://luma.com/jvtgzcj2',
   registrationStatus: 'Registration open',
